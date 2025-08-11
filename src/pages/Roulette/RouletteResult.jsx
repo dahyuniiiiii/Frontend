@@ -16,7 +16,7 @@ function RouletteResult({ result, onClose }) {
 
   const handleGoRecommend = () => {
     // ★ 결과 텍스트 그대로 전달
-    navigate("/rouletteRecommand", {
+    navigate("/rouletteRecommend", {
       state: { category: result },
       replace: false,
     });
