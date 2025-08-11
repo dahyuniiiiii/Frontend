@@ -21,21 +21,11 @@ body,
   max-width: 100%;
   width: 425px;
   min-height: 100dvh;
+  background: linear-gradient(to bottom, #ffcdcd 0%, #fff8c4 100%);
 }
-.header {
-  flex-shrink: 0; /* 스크롤에 영향 안 받음 */
-  height: 56px;
-  background: tomato;
-}
-
 .main {
   flex: 1;
   min-height: 100%;
   overflow: auto;
   min-height: 0;
-}
-.footer {
-  flex-shrink: 0;
-  height: 56px;
-  background: skyblue;
 }

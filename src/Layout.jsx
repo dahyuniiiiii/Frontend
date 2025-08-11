@@ -1,16 +1,19 @@
+import Header from "./pages/Layout/Header";
+import Footer from "./pages/Layout/Footer";
 import "./App.css";
 import { Outlet, useLocation } from "react-router-dom";
+
 function Layout() {
   const location = useLocation();
   const isHide = location.pathname === "/";
   return (
     <div className="appWrapper">
       <div className="app">
-        {!isHide && <header className="header">헤더</header>}
+        {!isHide && <Header />}
         <main className="main">
           <Outlet />
         </main>
-        {!isHide && <footer className="footer">푸터</footer>}
+        {!isHide && <Footer />}
       </div>
     </div>
   );
