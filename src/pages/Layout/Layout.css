@@ -1,0 +1,155 @@
+.header {
+  flex-shrink: 0;
+  height: 56px;
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  padding: 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 425px; 
+  z-index: 1; 
+}
+.headerLogo {
+  width: 110px;
+  height: 80px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.cateBarLogo {
+  width: 25px;
+  height: 25px;
+}
+
+.footer {
+  flex-shrink: 0;
+  height: 56px;
+  background: skyblue;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 425px;
+  height: 4rem;
+  background-color: #fbfbfb;
+  border-radius: 40px 40px 0 0;
+  border: inset 1px solid #ebebeb;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+.footerBtn {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 15px;
+  color: #8c8c8c;
+  cursor: pointer;
+  gap: 2px;
+}
+
+.footerBtn img {
+  width: 34px;
+  height: 30px;
+}
+
+.footerBtn-center {
+  position: relative;
+  top: -25px;
+  width: 71px;
+  height: 71px;
+  background-color: #ef776a;
+  border-radius: 50%;
+  border: 4px solid #fbfbfb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.footerBtn-center img {
+  width: 30px;
+  height: 30px;
+}
+
+.menuScreen {
+  position: fixed;
+  top: 0;
+  left: 50%;                  
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 425px;           
+  height: 100dvh;             
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1001;
+  display: flex;
+  justify-content: flex-end;
+}
+.sidebarMenu {
+  width: 70%;
+  max-width: 320px;
+  height: 100%;
+  background-color: white;
+  position: relative;
+  animation: slideInRight 0.3s ease forwards;
+}
+.sidebarClose {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #3d3d3d;
+}
+.sidebarMenu ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 7rem;
+}
+
+.sidebarMenu li {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+
+.menuItem.active {
+  background-color: #ffece7;
+}
+
+.menuIcon {
+  width: 34px;
+  height: 29px;
+}
+.info {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: -0.5px;
+}
