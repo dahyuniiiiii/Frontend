@@ -1,0 +1,100 @@
+.roulette-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.wheelWrapper {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pointerIcon {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 72px;
+  z-index: 1;
+}
+
+.wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 14px solid #f96538;
+  position: relative;
+  transition: transform 4s ease-out;
+  transform: rotate(0deg);
+  background-color: #fff8f0;
+  box-shadow: 0 0 10px #f96538;
+  overflow: hidden;
+}
+
+.startBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f96538;
+  color: white;
+  font-weight: bold;
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  border-radius: 50%;
+  border: 8px solid white;
+  box-shadow: 0 0 10px #ffb9a4;
+  font-size: 13px;
+  z-index: 5;
+}
+
+.sector {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0% 0%;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.sector img {
+  width: 56px;
+  height: 56px;
+  display: block;
+  margin: 0 auto 5px;
+}
+
+.sector span {
+  font-size: 24px;
+  font-family: "BM JUA", sans-serif;
+}
+@font-face {
+  font-family: "BM JUA";
+  src: url("/fonts/BMEuljiro.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+.sector-0 {
+  transform: rotate(0deg);
+  background-color: #ffb9a4;
+}
+.sector-1 {
+  transform: rotate(90deg);
+}
+.sector-2 {
+  transform: rotate(180deg);
+  background-color: #ffb9a4;
+}
+.sector-3 {
+  transform: rotate(270deg);
+}

@@ -1,0 +1,33 @@
+.rouletteWrapper {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5rem;
+  padding-bottom: 4rem;
+}
+.rouletteInfo {
+  font-family: "BM JUA", sans-serif;
+  color: #3d1209;
+  font-size: 28px;
+}
+@font-face {
+  font-family: "BM JUA";
+  src: url("/font/BMEuljiro.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.goRulette {
+  width: 90%;
+  height: 50px;
+  background: #ef776a;
+  color: #fdfdfd;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  margin-top: 1.5rem;
+}

@@ -1,0 +1,42 @@
+.recoWrapper {
+  margin-top: 4rem;
+}
+.recoList {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.recoFirstLine {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.recoFirstLineCate {
+  background-color: #ffece7;
+  color: #ef776a;
+  border-radius: 5px;
+  padding: 4px;
+}
+.recoName {
+  color: #1e1e1e;
+  font-size: 15px;
+}
+.recoText {
+  font-size: 13px;
+}
+.goAiBtn {
+  width: 90%;
+  height: 50px;
+  background: #fdfdfd;
+  color: #ef776a;
+  border: 2px solid #ef776a;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}

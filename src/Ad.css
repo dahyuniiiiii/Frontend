@@ -1,0 +1,22 @@
+.adWrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+.adImg {
+  display: flex;
+  animation: slide-left 15s linear infinite;
+  width: 500px;
+  height: 80px;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
