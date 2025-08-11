@@ -6,7 +6,7 @@ import Home from "./pages/Home/Home";
 import Shop from "./pages/shop/Shop";
 import Layout from "./Layout";
 import Roulette from "./pages/Roulette/Roulette";
-import RouletteRecommand from "./pages/Roulette/rouletteRecommand";
+import RouletteRecommend from "./pages/Roulette/RouletteRecommend";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<OnBoard />} />
         <Route path="/home" element={<Home />} />
         <Route path="/roulette" element={<Roulette />} />
-         <Route path="/rouletteRecommand" element={<RouletteRecommand />} />
+         <Route path="/rouletteRecommend" element={<RouletteRecommend />} />
         <Route path="/ai-chat" element={<AiChat />} />
         <Route path="/shop" element={<Shop />} />
       </Route>
