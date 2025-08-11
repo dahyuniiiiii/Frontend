@@ -60,6 +60,15 @@ function Header() {
                 <img src="assets/cate2.svg" className="menuIcon" />
                 천안도감
               </li>
+              <li
+                className={`menuItem ${
+                  selectedMenu === "roulette" ? "active" : ""
+                }`}
+                onClick={() => handleMenuClick("roulette")}
+              >
+                <img src="assets/cate3.svg" className="menuIcon" />
+                오뭐땡 룰렛
+              </li>
             </ul>
             <span className="info">© PIT STOP. All rights reserved</span>
           </div>

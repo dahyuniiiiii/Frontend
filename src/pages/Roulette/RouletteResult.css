@@ -1,0 +1,92 @@
+.modalWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.modalText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #3d1209;
+}
+.modal {
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #ffefeb 0%, #ffedbf 100%);
+  width: 90%;
+  max-width: 360px;
+  height: 70vh;
+  padding: 3rem 1.5rem;
+  border-radius: 15px;
+  border: 1px solid #efefef;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+.resultmodal {
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 360px;
+  height: 60vh;
+  padding: 3rem 1.5rem;
+  border-radius: 15px;
+  border: 1px solid #efefef;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fffbf2;
+}
+.modalClose {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #3d3d3d;
+  font-size: 24px;
+}
+
+.text-2xl {
+  font-family: "BM Euljiro", sans-serif;
+  text-align: center;
+}
+@font-face {
+  font-family: "BM Euljiro";
+  src: url("/fonts/BMEuljiro.ttf") format("truetype");
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+.resultText {
+  font-size: 24px;
+  color: #ef776a;
+  font-weight: bold;
+}
+.resultImg {
+  width: 200px;
+  margin: 1rem;
+}
+.resultButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.resultButtons button  {
+  border: 2px solid #ef776a;
+  border-radius: 30px;
+  background-color: white;
+  color: #ef776a;
+  font-size: 14px;
+  padding: 0.8rem 1.2rem;
+  font-weight: 500;
+}
