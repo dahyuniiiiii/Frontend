@@ -1,4 +1,3 @@
-// RouletteResult.jsx
 import "./RouletteResult.css";
 import { useNavigate } from "react-router-dom";
 
@@ -15,7 +14,6 @@ function RouletteResult({ result, onClose }) {
   const handleAskAi = () => navigate("/ai-chat");
 
   const handleGoRecommend = () => {
-    // ★ 결과 텍스트 그대로 전달
     navigate("/rouletteRecommend", {
       state: { category: result },
       replace: false,

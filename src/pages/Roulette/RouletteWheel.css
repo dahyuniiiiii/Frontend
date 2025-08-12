@@ -79,7 +79,7 @@
 }
 @font-face {
   font-family: "BM JUA";
-  src: url("/fonts/BMEuljiro.ttf") format("truetype");
+  src: url("/font/BMEuljiro.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
