@@ -22,3 +22,69 @@
   font-style: normal;
   font-display: swap;
 }
+
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 450px);
+  max-height: 640px;
+}
+
+.chatArea {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chatBubble {
+  max-width: 85%;
+  border-radius: 18px;
+  padding: 0px 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+.chatBubble.user {
+  background: #fee1de;
+  border: 1px solid #efc9c5;
+  border-radius: 25px;
+}
+.chatBubble.ai {
+  background: #f4f4f4;
+  border: 1px solid #e8e8e8;
+  border-radius: 25px;
+}
+
+.inputArea {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  padding: 10px 12px;
+  background: transparent;
+  border-radius: 25px;
+  gap: 10rem;
+  border: 1px solid #e8e8e8;
+}
+
+.inputArea input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+.sendBtn {
+  width: 35px;
+  height: 35px;
+  border: none;
+  background: #ef776a;
+  border-radius: 50%;
+}
+
+.sendBtn img {
+  width: 23px;
+  height: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
