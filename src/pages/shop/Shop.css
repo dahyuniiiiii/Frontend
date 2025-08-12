@@ -1,0 +1,56 @@
+.shopWrapper {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5rem;
+  padding-bottom: 4rem;
+}
+.chip {
+  display: inline-block;
+  padding: 6px 15px;
+  margin: 8px 4px;
+  border-radius: 30px;
+  border: 1px solid #EF776A;
+  background-color:transparent;
+  font-size: 16px;
+  color: #EF776A;
+}
+.cate {
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-size: 13px;
+  background-color: #ffece7;
+  color: #ef776a;
+}
+.shopname {
+  font-size: 16px;
+}
+.optionBar {
+  border: 1px solid #b1b1b1;
+  border-radius: 30px;
+  width: 85px;
+  height: 35px;
+  color: #8d8d8d;
+  background-color: transparent;
+}
+.shopbottom {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+.shop-txt {
+  font-size: 12px;
+}
+.listWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2개씩 */
+  gap: 16px; /* 카드 사이 간격 */
+  padding: 10px;
+}
+.cardWrapper {
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 12px;
+}

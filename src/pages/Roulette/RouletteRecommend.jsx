@@ -52,7 +52,7 @@ function RouletteRecommend() {
           categoryGroupCode: "FD6",
         };
 
-        const { data } = await api.post("/recommend", body);
+        const { data } = await api.post("/api/place/search/distance", body);
         const docs = Array.isArray(data?.documents) ? data.documents : [];
 
         const top5 = docs
