@@ -13,7 +13,6 @@ const RouletteWheel = forwardRef(function RouletteWheel({ onResult }, ref) {
   const [isSpinning, setIsSpinning] = useState(false);
   const [rotationDegree, setRotationDegree] = useState(0);
 
-  // 외부에서 wheelRef.current.spin() 호출 가능
   useImperativeHandle(ref, () => ({
     spin: () => spinWheel(),
   }));
@@ -31,16 +30,15 @@ const RouletteWheel = forwardRef(function RouletteWheel({ onResult }, ref) {
     setRotationDegree((prev) => prev + targetDeg);
 
     setTimeout(() => {
-      onResult?.(options[randomIndex]); // 결과 전달
+      onResult?.(options[randomIndex]); 
       setIsSpinning(false);
-    }, 4000);
+    }, 3900);
   };
 
   return (
     <div className="roulette-container">
       <div className="wheelWrapper">
         <div className="pointerIcon">
-          {/* 오타 주의: assests ❌ → assets ✅ */}
           <img src="/assets/spinPointer.svg" alt="pointer" />
         </div>
 
