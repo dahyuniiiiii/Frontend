@@ -56,6 +56,18 @@
   border: 1px solid #e8e8e8;
   border-radius: 25px;
 }
+.chatBubble:last-child {
+  margin-bottom: 20px;
+}
+.airecomBtn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 15px;
+  background: #EF776A;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 13px;
+}
 
 .inputArea {
   display: flex;
