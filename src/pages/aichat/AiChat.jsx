@@ -1,12 +1,15 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import "./AiChat.css";
 import api from "../../utils/axios";
 
 function AiChat() {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([]); 
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const chatAreaRef = useRef(null);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     if (!chatAreaRef.current) return;
@@ -17,15 +20,12 @@ function AiChat() {
 
   const sendMessage = useCallback(async () => {
     if (loading) return;
-    const content = input.trim();
 
+    const content = input.trim();
     if (!content) {
       setMessages((prev) => [
         ...prev,
-        {
-          sender: "ai",
-          text: "뭘 먹고 싶은지 말해줘야 추천해줄 수 있어유~",
-        },
+        { sender: "ai", text: "뭘 먹고 싶은지 말해줘야 추천해줄 수 있어유~" },
       ]);
       return;
     }
@@ -36,33 +36,44 @@ function AiChat() {
     setLoading(true);
 
     try {
-      const res = await api.post("/chat", {
-        userId: "guest",
-        message: content,
-      });
+      const fullUserContext = [...messages, userMsg]
+        .filter((m) => m.sender === "user")
+        .map((m) => m.text)
+        .join("\n");
 
-      const { response, recommendedStores } = res.data || {};
+      const res = await api.post("/api/chat/recommend", {
+        message: fullUserContext,
+      });
+      const data = res?.data ?? {};
+
       const aiMsg = {
         sender: "ai",
-        text: response || "음... 일단 이렇게 추천해볼게유!",
-        stores: Array.isArray(recommendedStores) ? recommendedStores : [],
+        text: data.reply || "음... 일단 이렇게 추천해볼게유!",
+        stores: Array.isArray(data.stores) ? data.stores : [],
+        intent: data.intent ?? null,
       };
       setMessages((prev) => [...prev, aiMsg]);
-    } catch {
+    } catch (e) {
       setMessages((prev) => [
         ...prev,
         {
           sender: "ai",
-          text: "지금 서버 오류가 있어유.. 나중에 다시 시도해줘유ㅠㅠ",
+          text:
+            "추천을 불러오지 못했어유. 잠시 후 다시 시도해줘유ㅠㅠ\n" +
+            (e?.response?.data?.message ? `(${e.response.data.message})` : ""),
         },
       ]);
     } finally {
       setLoading(false);
     }
-  }, [input, loading]);
+  }, [input, loading, messages]);
+
+  const goRecommend = (stores = []) => {
+    navigate("/ai-recommend", { state: { stores } });
+  };
 
   const onKeyDown = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
     }
@@ -82,14 +93,38 @@ function AiChat() {
 
         <div className="chatContainer">
           <div className="chatArea" ref={chatAreaRef}>
-            {messages.map((msg, i) => (
-              <div key={i} className={`chatBubble ${msg.sender}`}>
-                <p>{msg.text}</p>
-              </div>
-            ))}
+            {messages.map((msg, i) => {
+              const isAI = msg.sender === "ai";
+              const isLast = i === messages.length - 1;
+              return (
+                <div
+                  key={i}
+                  className={`chatBubble ${msg.sender}`}
+                  style={{ marginBottom: isLast ? 50 : 12 }} 
+                >
+                  <p style={{ whiteSpace: "pre-wrap", marginBottom: 8 }}>
+                    {msg.text}
+                  </p>
+
+                  {isAI &&
+                    Array.isArray(msg.stores) &&
+                    msg.stores.length > 0 && (
+                      <button
+                        className="airecomBtn"
+                        type="button"
+                        onClick={() => goRecommend(msg.stores)}
+                        aria-label="천둥이 Pick 보러가기"
+                      >
+                        천둥이 Pick 보러가기
+                      </button>
+                    )}
+                </div>
+              );
+            })}
+
             {loading && (
               <div className="chatBubble ai">
-                <p>추천 목록 만드는 중…</p>
+                <p>추천 목록 만드는 중이에유~</p>
               </div>
             )}
           </div>
@@ -100,15 +135,16 @@ function AiChat() {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="텍스트를 입력하세요."
             onKeyDown={onKeyDown}
-            disabled={loading}
+            placeholder="텍스트를 입력하세요."
           />
           <button
             className="sendBtn"
             onClick={sendMessage}
             disabled={loading}
             type="button"
+            aria-label="send"
+            title="전송"
           >
             <img src="/assets/sendPointer.svg" alt="" />
           </button>

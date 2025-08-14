@@ -11,17 +11,16 @@ function Shop() {
   const location = useLocation();
   const initialCat = useMemo(() => {
     const q = new URLSearchParams(location.search).get("q");
-    return CATEGORIES.includes(q || "") ? q : "전체"; // 디자인상 예시로 '일식' 기본 선택
+    return CATEGORIES.includes(q || "") ? q : "전체"; 
   }, [location.search]);
 
   const [selectedCat, setSelectedCat] = useState(initialCat);
   const [sort, setSort] = useState("기본");
-  const [coords, setCoords] = useState(null); // { x: lon, y: lat }
+  const [coords, setCoords] = useState(null); 
   const [stores, setStores] = useState([]);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState("");
 
-  // 위치 권한
   useEffect(() => {
     if (!("geolocation" in navigator)) {
       setErr("현재 기기에서 위치 정보를 사용할 수 없어요.");
@@ -36,13 +35,10 @@ function Shop() {
     );
   }, []);
 
-  // 데이터 로드
   useEffect(() => {
     const run = async () => {
-      // 전체는 카테고리 키워드 없이 '음식점' 검색 느낌으로
       const query = selectedCat === "전체" ? "음식점" : selectedCat;
 
-      // 거리 정렬은 위치가 필요
       if (
         (sort === "기본" || sort === "가까운 순") &&
         (!coords?.x || !coords?.y)
@@ -58,15 +54,14 @@ function Shop() {
           radius: 3000,
           size: 14,
           page: 1,
-          categoryGroupCode: "FD6", // 음식점
+          categoryGroupCode: "FD6", 
         };
 
         let data;
-        if (sort === "정확도") {
+        if (sort === "가까운 순") {
           const res = await api.post("/api/place/search/accuracy", baseBody);
           data = res.data;
         } else {
-          // 기본 = 거리순과 동일하게 처리 (UI에 '기본' 표기 유지)
           const body = {
             ...baseBody,
             x: coords.x,
