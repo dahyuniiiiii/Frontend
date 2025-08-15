@@ -5,7 +5,7 @@ import Ad from "../../Ad";
 import "./Shop.css";
 
 const CATEGORIES = ["전체", "한식", "일식", "중식", "양식", "카페"];
-const SORTS = ["기본", "가까운 순"];
+const SORTS = ["기본 순", "가까운 순"];
 
 function Shop() {
   const location = useLocation();
@@ -15,7 +15,7 @@ function Shop() {
   }, [location.search]);
 
   const [selectedCat, setSelectedCat] = useState(initialCat);
-  const [sort, setSort] = useState("기본");
+  const [sort, setSort] = useState("기본 순");
   const [coords, setCoords] = useState(null);
   const [stores, setStores] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -40,7 +40,7 @@ function Shop() {
       const query = selectedCat === "전체" ? "음식점" : selectedCat;
 
       if (
-        (sort === "기본" || sort === "가까운 순") &&
+        (sort === "기본 순" || sort === "가까운 순") &&
         (!coords?.x || !coords?.y)
       )
         return;
@@ -58,7 +58,7 @@ function Shop() {
         };
 
         let data;
-        if (sort === "기본") {
+        if (sort === "기본 순") {
           const res = await api.post("/api/place/search/accuracy", baseBody);
           data = res.data;
         } else {
@@ -105,7 +105,7 @@ function Shop() {
         </div>
       </div>
 
-      <div>
+      <div className="optionBarRow">
         <select
           className="optionBar"
           value={sort}
@@ -131,7 +131,7 @@ function Shop() {
               onClick={() => openPlace(s.place_url)}
             >
               <span className="cate">
-                {selectedCat === "전체" ? "맛집" : selectedCat}
+                {selectedCat === "전체" ? (s.category_name ? s.category_name.split(" > ")[1] || s.category_name : "기타"): selectedCat}
               </span>
               <h3 className="shopname">{s.place_name}</h3>
 
