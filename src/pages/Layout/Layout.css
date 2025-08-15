@@ -13,6 +13,7 @@
   max-width: 425px;
   z-index: 1;
 }
+
 .headerLogo {
   width: 110px;
   height: 80px;
@@ -24,7 +25,6 @@
   width: 25px;
   height: 25px;
 }
-
 
 .footer {
   flex-shrink: 0;
