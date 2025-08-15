@@ -11,12 +11,12 @@ function Shop() {
   const location = useLocation();
   const initialCat = useMemo(() => {
     const q = new URLSearchParams(location.search).get("q");
-    return CATEGORIES.includes(q || "") ? q : "전체"; 
+    return CATEGORIES.includes(q || "") ? q : "전체";
   }, [location.search]);
 
   const [selectedCat, setSelectedCat] = useState(initialCat);
   const [sort, setSort] = useState("기본");
-  const [coords, setCoords] = useState(null); 
+  const [coords, setCoords] = useState(null);
   const [stores, setStores] = useState([]);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState("");
@@ -54,7 +54,7 @@ function Shop() {
           radius: 3000,
           size: 14,
           page: 1,
-          categoryGroupCode: "FD6", 
+          categoryGroupCode: "FD6",
         };
 
         let data;
@@ -91,17 +91,20 @@ function Shop() {
   return (
     <div className="shopWrapper">
       <Ad />
-      <div>
-        {CATEGORIES.map((c) => (
-          <button
-            key={c}
-            className={`chip ${selectedCat === c ? "active" : ""}`}
-            onClick={() => setSelectedCat(c)}
-          >
-            {c}
-          </button>
-        ))}
+      <div className="chipViewport">
+        <div className="chipTrack">
+          {CATEGORIES.map((c) => (
+            <button
+              key={c}
+              className={`chip ${selectedCat === c ? "active" : ""}`}
+              onClick={() => setSelectedCat(c)}
+            >
+              {c}
+            </button>
+          ))}
+        </div>
       </div>
+
       <div>
         <select
           className="optionBar"
