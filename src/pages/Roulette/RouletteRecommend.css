@@ -1,5 +1,6 @@
 .recoWrapper {
   margin-top: 4rem;
+  padding-bottom: 80px;
 }
 .recoList {
   padding: 1rem 2rem;
@@ -39,4 +40,14 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  transition: all 0.3s ease;
+}
+.goAiBtn:hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffe1dd;
+  color: #ef776a;
+  border: 1px solid #ef776a;
+  transform: scale(1.03); /* 살짝 커짐 효과 */
 }
