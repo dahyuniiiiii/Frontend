@@ -32,8 +32,8 @@
 .optionBarRow {
   width: 100%;
   display: flex;
-  justify-content: flex-end; 
-  padding: 0 16px; 
+  justify-content: flex-end;
+  padding: 0 16px;
 }
 .optionBar {
   border: 1px solid #b1b1b1;
@@ -45,7 +45,7 @@
 }
 .shopbottom {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-self: center;
 }
 .shop-txt {

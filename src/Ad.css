@@ -7,7 +7,7 @@
 
 .adImg {
   display: flex;
-  animation: slide-left 15s linear infinite;
+  animation: slide-left 100s linear infinite;
   width: 4000px;
   height: 80px;
 }
