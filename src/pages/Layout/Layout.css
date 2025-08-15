@@ -1,7 +1,7 @@
 .header {
   flex-shrink: 0;
   height: 56px;
-  background: transparent;
+  background: #ffd0ca;
   display: flex;
   flex-direction: row;
   justify-content: end;
@@ -25,13 +25,9 @@
   height: 25px;
 }
 
-.footer {
-  flex-shrink: 0;
-  height: 56px;
-  background: skyblue;
-}
 
 .footer {
+  flex-shrink: 0;
   position: fixed;
   bottom: 0;
   width: 100%;
