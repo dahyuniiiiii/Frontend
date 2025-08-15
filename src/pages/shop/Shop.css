@@ -12,10 +12,12 @@
   padding: 6px 15px;
   margin: 8px 4px;
   border-radius: 30px;
-  border: 1px solid #EF776A;
-  background-color:transparent;
+  border: 1px solid #ef776a;
+  background-color: transparent;
   font-size: 16px;
-  color: #EF776A;
+  color: #ef776a;
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 .cate {
   border-radius: 5px;
@@ -45,12 +47,29 @@
 }
 .listWrapper {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2개씩 */
-  gap: 16px; /* 카드 사이 간격 */
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 16px;
   padding: 10px;
 }
 .cardWrapper {
   border: 1px solid #e8e8e8;
   border-radius: 8px;
   padding: 12px;
+}
+
+.chipViewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.chipTrack {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  padding: 0 20px 6px 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
