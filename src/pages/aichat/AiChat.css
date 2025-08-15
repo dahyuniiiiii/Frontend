@@ -63,7 +63,7 @@
   border: none;
   padding: 8px 14px;
   border-radius: 15px;
-  background: #EF776A;
+  background: #ef776a;
   color: #ffffff;
   font-weight: bold;
   font-size: 13px;
@@ -72,20 +72,27 @@
 .inputArea {
   display: flex;
   align-items: center;
-  width: 90%;
+  width: min(800px, 50vw);
   padding: 10px 12px;
   background: transparent;
   border-radius: 25px;
-  gap: 10rem;
+  gap: 8px;
   border: 1px solid #e8e8e8;
+  cursor: text;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .inputArea input {
+  flex: 1 1 auto;
+  min-width: 0;
   border: none;
+  padding: 8px 0;
+  font-size: 13px;
   background-color: transparent;
   outline: none;
 }
 .sendBtn {
+  flex: 0 0 35px;     
   width: 35px;
   height: 35px;
   border: none;
@@ -96,7 +103,5 @@
 .sendBtn img {
   width: 23px;
   height: 23px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
 }

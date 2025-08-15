@@ -4,12 +4,11 @@ import "./AiChat.css";
 import api from "../../utils/axios";
 
 function AiChat() {
-  const [messages, setMessages] = useState([]); 
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const chatAreaRef = useRef(null);
   const navigate = useNavigate();
-
 
   useEffect(() => {
     if (!chatAreaRef.current) return;
@@ -44,8 +43,7 @@ function AiChat() {
       const res = await api.post("/api/chat/recommend", {
         message: fullUserContext,
       });
-      const data = res?.data ?? {};
-
+      const data = res?.data ?? res ?? {};
       const aiMsg = {
         sender: "ai",
         text: data.reply || "음... 일단 이렇게 추천해볼게유!",
@@ -100,7 +98,7 @@ function AiChat() {
                 <div
                   key={i}
                   className={`chatBubble ${msg.sender}`}
-                  style={{ marginBottom: isLast ? 50 : 12 }} 
+                  style={{ marginBottom: isLast ? 50 : 12 }}
                 >
                   <p style={{ whiteSpace: "pre-wrap", marginBottom: 8 }}>
                     {msg.text}

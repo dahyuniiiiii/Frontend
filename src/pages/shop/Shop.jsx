@@ -58,7 +58,7 @@ function Shop() {
         };
 
         let data;
-        if (sort === "가까운 순") {
+        if (sort === "기본") {
           const res = await api.post("/api/place/search/accuracy", baseBody);
           data = res.data;
         } else {

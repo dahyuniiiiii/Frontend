@@ -7,5 +7,7 @@ const instance = axios.create({
   },
   withCredentials: false,
 });
+console.log("[ENV TEST]", import.meta.env.VITE_BACK_API_URL);
+
 
 export default instance;
