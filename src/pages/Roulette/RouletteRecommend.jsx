@@ -51,7 +51,6 @@ function RouletteRecommend() {
           sort: "distance",
           categoryGroupCode: "FD6",
         };
-
         const { data } = await api.post("/api/recommend", body);
         const docs = Array.isArray(data?.documents) ? data.documents : [];
 
