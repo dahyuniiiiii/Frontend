@@ -70,13 +70,17 @@
   width: 56px;
   height: 56px;
   display: block;
-  margin: 0 auto 5px;
+  margin: 0px 10px;
+  transform: rotate(135deg);
 }
 
 .sector span {
   font-size: 24px;
   font-family: "BM JUA", sans-serif;
+  display: inline-block;
+  transform: rotate(135deg);
 }
+
 @font-face {
   font-family: "BM JUA";
   src: url("/font/BMEuljiro.ttf") format("truetype");

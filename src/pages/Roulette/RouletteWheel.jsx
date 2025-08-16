@@ -30,7 +30,7 @@ const RouletteWheel = forwardRef(function RouletteWheel({ onResult }, ref) {
     setRotationDegree((prev) => prev + targetDeg);
 
     setTimeout(() => {
-      onResult?.(options[randomIndex]); 
+      onResult?.(options[randomIndex]);
       setIsSpinning(false);
     }, 3900);
   };

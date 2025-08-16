@@ -23,7 +23,11 @@ function Header() {
   };
   return (
     <header className="header">
-      <img className="headerLogo" src="assets/longLogo.svg" />
+      <img
+        className="headerLogo"
+        src="assets/longLogo.svg"
+        onClick={() => navigate("/home")}
+      />
       <img
         className="cateBarLogo"
         src="assets/menubar.svg"
@@ -70,7 +74,10 @@ function Header() {
                 오뭐땡 룰렛
               </li>
             </ul>
-            <span className="info">© PIT STOP. All rights reserved</span>
+            <div className="catebottom">
+              <img src="assets/longLogo.svg" className="menulogo" />
+              <span className="info">© PIT STOP. All rights reserved</span>
+            </div>
           </div>
         </div>
       )}
