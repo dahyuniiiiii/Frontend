@@ -1,5 +1,5 @@
 .recoWrapper {
-  margin-top: 4rem;
+  padding-top: 4rem;
   padding-bottom: 80px;
 }
 .recoList {
@@ -49,5 +49,5 @@
   background: #ffe1dd;
   color: #ef776a;
   border: 1px solid #ef776a;
-  transform: scale(1.03); 
+  transform: scale(1.03);
 }

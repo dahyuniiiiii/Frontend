@@ -4,7 +4,16 @@ import api from "../../utils/axios";
 import Ad from "../../Ad";
 import "./Shop.css";
 
-const CATEGORIES = ["전체", "한식", "일식", "중식", "양식", "카페"];
+const CATEGORIES = [
+  "전체",
+  "한식",
+  "일식",
+  "중식",
+  "양식",
+  "카페",
+  "간식",
+  "술집",
+];
 const SORTS = ["기본 순", "가까운 순"];
 
 function Shop() {
@@ -131,7 +140,11 @@ function Shop() {
               onClick={() => openPlace(s.place_url)}
             >
               <span className="cate">
-                {selectedCat === "전체" ? (s.category_name ? s.category_name.split(" > ")[1] || s.category_name : "기타"): selectedCat}
+                {selectedCat === "전체"
+                  ? s.category_name
+                    ? s.category_name.split(" > ")[1] || s.category_name
+                    : "기타"
+                  : selectedCat}
               </span>
               <h3 className="shopname">{s.place_name}</h3>
 
