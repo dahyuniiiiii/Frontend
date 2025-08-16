@@ -74,7 +74,7 @@ function RouletteRecommend() {
     <div className="recoWrapper">
       <Ad />
       {!category && <div>카테고리 정보가 없어요.</div>}
-      {loading && <div>불러오는 중…</div>}
+      {loading && <div className="loadingText">불러오는 중…</div>}
       {err && !loading && <div>{err}</div>}
       {!loading && !err && (
         <div className="recoList">
