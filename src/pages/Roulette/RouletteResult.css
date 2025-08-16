@@ -55,22 +55,23 @@
   color: #3d3d3d;
   font-size: 24px;
 }
-
-.text-2xl {
+.resultTextb {
+  font-size: 30px;
+  color: #ef776a;
   font-family: "BM Euljiro", sans-serif;
-  text-align: center;
+}
+
+.resultText {
+  font-size: 30px;
+  color: #3d1209;
+  font-family: "BM Euljiro", sans-serif;
 }
 @font-face {
   font-family: "BM Euljiro";
-  src: url("/fonts/BMEuljiro.ttf") format("truetype");
+  src: url("/font/BMEuljiro.ttf") format("truetype");
   font-display: swap;
   font-weight: normal;
   font-style: normal;
-}
-.resultText {
-  font-size: 24px;
-  color: #ef776a;
-  font-weight: bold;
 }
 .resultImg {
   width: 200px;
@@ -81,7 +82,7 @@
   flex-direction: row;
   gap: 1rem;
 }
-.resultButtons button  {
+.resultButtons button {
   border: 2px solid #ef776a;
   border-radius: 30px;
   background-color: white;

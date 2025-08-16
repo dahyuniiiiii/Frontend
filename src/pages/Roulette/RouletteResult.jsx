@@ -27,11 +27,8 @@ function RouletteResult({ result, onClose }) {
           x
         </button>
 
-        <span className="resultText">
-          룰렛 결과
-          <br />
-          오늘은 {result}이 나왔어유!
-        </span>
+        <span className="resultText">룰렛 결과</span>
+        <span className="resultTextb">오늘은 {result}이 나왔어유!</span>
 
         <img src={images[result]} alt={result} className="resultImg" />
 
