@@ -1,22 +1,22 @@
-.adWrapper {
+.adSlider {
   width: 100%;
-  height: 100%;
   overflow: hidden;
-  background: transparent;
-}
-
-.adImg {
-  display: flex;
-  animation: slide-left 100s linear infinite;
-  width: 4000px;
+  position: relative;
   height: 80px;
+  touch-action: pan-y;
 }
 
-@keyframes slide-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.adWrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.adImage {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
 }
