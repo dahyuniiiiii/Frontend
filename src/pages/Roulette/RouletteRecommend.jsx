@@ -17,10 +17,16 @@ function RouletteRecommend() {
     );
   }, [location.state, location.search]);
 
+  const [showAd, setShowAd] = useState(true);
   const [coords, setCoords] = useState(null);
   const [stores, setStores] = useState([]);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState("");
+  useEffect(() => {
+    if (!showAd) return;
+    const t = setTimeout(() => setShowAd(false), 2500);
+    return () => clearTimeout(t);
+  }, [showAd]);
 
   useEffect(() => {
     if (!("geolocation" in navigator)) {
@@ -34,7 +40,7 @@ function RouletteRecommend() {
       (e) => setErr(e?.message || "위치 권한을 허용해 주세요."),
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
     );
-  }, []);
+  }, [showAd]);
   useEffect(() => {
     if (!category || !coords?.x || !coords?.y) return;
 
@@ -71,36 +77,48 @@ function RouletteRecommend() {
   const goAi = () => navigate("/ai-chat");
 
   return (
-    <div className="recoWrapper">
-      <Ad />
-      {!category && <div>카테고리 정보가 없어요.</div>}
-      {loading && <div className="loadingText">불러오는 중…</div>}
-      {err && !loading && <div>{err}</div>}
-      {!loading && !err && (
-        <div className="recoList">
-          {stores.map((s, i) => (
-            <div
-              key={s.id || i}
-              onClick={() => window.open(s.place_url || "#", "_blank")}
-            >
-              <div className="recoFirstLine">
-                <span className="recoFirstLineCate">{category}</span>
-                <h3 className="recoName">{s.place_name}</h3>
-              </div>
-              <div className="recoSecondLine">
-                <img className="recoIcon" src="assets/RoulRecom1.svg"></img>
-                <span className="recoText">
-                  {s.road_address_name || s.address_name}
-                </span>
-              </div>
+    <>
+      {showAd && (
+        <img
+          src="/assets/rouladimg.svg"
+          className="AdImage"
+          onFinish={() => setShowAd(false)}
+        />
+      )}
+
+      {!showAd && (
+        <div className="recoWrapper">
+          <Ad />
+          {!category && <div>카테고리 정보가 없어요.</div>}
+          {loading && <div className="loadingText">불러오는 중…</div>}
+          {err && !loading && <div>{err}</div>}
+          {!loading && !err && (
+            <div className="recoList">
+              {stores.map((s, i) => (
+                <div
+                  key={s.id || i}
+                  onClick={() => window.open(s.place_url || "#", "_blank")}
+                >
+                  <div className="recoFirstLine">
+                    <span className="recoFirstLineCate">{category}</span>
+                    <h3 className="recoName">{s.place_name}</h3>
+                  </div>
+                  <div className="recoSecondLine">
+                    <img className="recoIcon" src="assets/RoulRecom1.svg"></img>
+                    <span className="recoText">
+                      {s.road_address_name || s.address_name}
+                    </span>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          )}
+          <button className="goAiBtn" onClick={goAi}>
+            천둥이한테 물어보기
+          </button>
         </div>
       )}
-      <button className="goAiBtn" onClick={goAi}>
-        천둥이한테 물어보기
-      </button>
-    </div>
+    </>
   );
 }
 export default RouletteRecommend;

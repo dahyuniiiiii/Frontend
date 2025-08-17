@@ -14,7 +14,7 @@ const CATEGORIES = [
   "간식",
   "술집",
 ];
-const SORTS = ["기본 순", "가까운 순"];
+const SORTS = ["추천 순", "가까운 순"];
 
 function Shop() {
   const location = useLocation();
@@ -24,7 +24,7 @@ function Shop() {
   }, [location.search]);
 
   const [selectedCat, setSelectedCat] = useState(initialCat);
-  const [sort, setSort] = useState("기본 순");
+  const [sort, setSort] = useState("추천 순");
   const [coords, setCoords] = useState(null);
   const [stores, setStores] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -49,7 +49,7 @@ function Shop() {
       const query = selectedCat === "전체" ? "음식점" : selectedCat;
 
       if (
-        (sort === "기본 순" || sort === "가까운 순") &&
+        (sort === "추천 순" || sort === "가까운 순") &&
         (!coords?.x || !coords?.y)
       )
         return;
@@ -67,7 +67,7 @@ function Shop() {
         };
 
         let data;
-        if (sort === "기본 순") {
+        if (sort === "추천 순") {
           const res = await api.post("/api/place/search/accuracy", baseBody);
           data = res.data;
         } else {

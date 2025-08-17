@@ -67,11 +67,12 @@
 }
 
 .sector img {
-  width: 56px;
-  height: 56px;
+  width: 70px;
+  height: 70px;
   display: block;
   margin: 0px 10px;
   transform: rotate(135deg);
+  padding-bottom: 15px;
 }
 
 .sector span {
