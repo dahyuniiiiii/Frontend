@@ -13,7 +13,7 @@
   margin: 8px 4px;
   border-radius: 30px;
   border: 1px solid #ef776a;
-  background-color: transparent;
+  background-color: white;
   font-size: 16px;
   color: #ef776a;
   flex: 0 0 auto;
@@ -41,7 +41,7 @@
   width: 85px;
   height: 35px;
   color: #8d8d8d;
-  background-color: transparent;
+  background-color: white;
 }
 .shopbottom {
   display: flex;
@@ -61,6 +61,7 @@
   border: 1px solid #e8e8e8;
   border-radius: 8px;
   padding: 12px;
+  background-color: white;
 }
 
 .chipViewport {

@@ -7,6 +7,7 @@ function AiChat() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [started, setStarted] = useState(false);
   const chatAreaRef = useRef(null);
   const navigate = useNavigate();
 
@@ -28,10 +29,12 @@ function AiChat() {
       ]);
       return;
     }
+    setStarted(true);
 
     const userMsg = { sender: "user", text: content };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
+    setStarted(true);
     setLoading(true);
 
     try {
@@ -78,75 +81,69 @@ function AiChat() {
   };
 
   return (
-    <div className="home">
-      <div className="homeWrapper">
-        <img className="aiImg" src="/assets/ProjectLogo.svg" alt="logo" />
-
-        <div className="textWrapper">
-          오늘 뭐 묵고 싶은겨~? <br />
-          찬밥이여 따신 국물이여~ 분위기도 말해봐유
-          <br />
-          내가 싹 다 추천해줄텨~
-        </div>
-
-        <div className="chatContainer">
-          <div className="chatArea" ref={chatAreaRef}>
-            {messages.map((msg, i) => {
-              const isAI = msg.sender === "ai";
-              const isLast = i === messages.length - 1;
-              return (
-                <div
-                  key={i}
-                  className={`chatBubble ${msg.sender}`}
-                  style={{ marginBottom: isLast ? 50 : 12 }}
-                >
-                  <p style={{ whiteSpace: "pre-wrap", marginBottom: 8 }}>
-                    {msg.text}
-                  </p>
-
-                  {isAI &&
-                    Array.isArray(msg.stores) &&
-                    msg.stores.length > 0 && (
-                      <button
-                        className="airecomBtn"
-                        type="button"
-                        onClick={() => goRecommend(msg.stores)}
-                        aria-label="천둥이 Pick 보러가기"
-                      >
-                        천둥이 Pick 보러가기
-                      </button>
-                    )}
-                </div>
-              );
-            })}
-
-            {loading && (
-              <div className="chatBubble ai">
-                <p>추천 목록 만드는 중이에유~</p>
-              </div>
-            )}
+    <div className={`homeWrapper ${started ? "no-hero" : ""}`}>
+      {!started && (
+        <>
+          <img className="aiImg" src="/assets/ProjectLogo.svg" alt="logo" />
+          <div className="textWrapper">
+            오늘 뭐 묵고 싶은겨~? <br />
+            찬밥이여 따신 국물이여~ 분위기도 말해봐유
+            <br />
+            내가 싹 다 추천해줄텨~
           </div>
-        </div>
+        </>
+      )}
 
-        <div className="inputArea">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={onKeyDown}
-            placeholder="텍스트를 입력하세요."
-          />
-          <button
-            className="sendBtn"
-            onClick={sendMessage}
-            disabled={loading}
-            type="button"
-            aria-label="send"
-            title="전송"
-          >
-            <img src="/assets/sendPointer.svg" alt="" />
-          </button>
+      <div className="chatContainer">
+        <div className="chatArea" ref={chatAreaRef}>
+          {messages.map((msg, i) => {
+            const isAI = msg.sender === "ai";
+            return (
+              <div key={i} className={`chatBubble ${msg.sender}`}>
+                <p style={{ whiteSpace: "pre-wrap", marginBottom: 8 }}>
+                  {msg.text}
+                </p>
+
+                {isAI && Array.isArray(msg.stores) && msg.stores.length > 0 && (
+                  <button
+                    className="airecomBtn"
+                    type="button"
+                    onClick={() => goRecommend(msg.stores)}
+                    aria-label="천둥이 Pick 보러가기"
+                  >
+                    천둥이 Pick 보러가기
+                  </button>
+                )}
+              </div>
+            );
+          })}
+
+          {loading && (
+            <div className="chatBubble ai">
+              <p>추천 목록 만드는 중이에유~</p>
+            </div>
+          )}
         </div>
+      </div>
+
+      <div className="inputArea">
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={onKeyDown}
+          placeholder="텍스트를 입력하세요."
+        />
+        <button
+          className="sendBtn"
+          onClick={sendMessage}
+          disabled={loading}
+          type="button"
+          aria-label="send"
+          title="전송"
+        >
+          <img src="/assets/sendPointer.svg" alt="" />
+        </button>
       </div>
     </div>
   );
