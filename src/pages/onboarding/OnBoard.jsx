@@ -12,6 +12,7 @@ function OnBoard() {
       <section className="IntroArea">
         <img src="/assets/longLogo.svg"></img>
         <p>
+          |<br />
           scroll
           <br />↓
         </p>
