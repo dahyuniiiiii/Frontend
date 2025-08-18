@@ -16,7 +16,7 @@ function AiChat() {
     requestAnimationFrame(() => {
       chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
     });
-  }, [messages]);
+  }, [messages, loading]);
 
   const sendMessage = useCallback(async () => {
     if (loading) return;
@@ -29,12 +29,12 @@ function AiChat() {
       ]);
       return;
     }
+
     setStarted(true);
 
     const userMsg = { sender: "user", text: content };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
-    setStarted(true);
     setLoading(true);
 
     try {
@@ -46,6 +46,7 @@ function AiChat() {
       const res = await api.post("/api/chat/recommend", {
         message: fullUserContext,
       });
+
       const data = res?.data ?? res ?? {};
       const aiMsg = {
         sender: "ai",
@@ -55,13 +56,14 @@ function AiChat() {
       };
       setMessages((prev) => [...prev, aiMsg]);
     } catch (e) {
+      const extra = e?.response?.data?.message
+        ? `(${e.response.data.message})`
+        : "";
       setMessages((prev) => [
         ...prev,
         {
           sender: "ai",
-          text:
-            "추천을 불러오지 못했어유. 잠시 후 다시 시도해줘유ㅠㅠ\n" +
-            (e?.response?.data?.message ? `(${e.response.data.message})` : ""),
+          text: `추천을 불러오지 못했어유. 잠시 후 다시 시도해줘유ㅠㅠ\n${extra}`,
         },
       ]);
     } finally {
@@ -142,7 +144,7 @@ function AiChat() {
           aria-label="send"
           title="전송"
         >
-          <img src="/assets/sendPointer.svg" alt="" />
+          <img src="/assets/sendPointer.svg" />
         </button>
       </div>
     </div>
