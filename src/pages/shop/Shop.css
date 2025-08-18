@@ -51,6 +51,11 @@
 .shop-txt {
   font-size: 12px;
 }
+.chip.active,
+.chip[aria-pressed="true"] {
+  background-color: #ef776a;
+  color: #fff;
+}
 .listWrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

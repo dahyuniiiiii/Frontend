@@ -107,6 +107,7 @@ function Shop() {
               key={c}
               className={`chip ${selectedCat === c ? "active" : ""}`}
               onClick={() => setSelectedCat(c)}
+              aria-pressed={selectedCat === c}
             >
               {c}
             </button>

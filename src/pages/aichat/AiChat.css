@@ -1,6 +1,8 @@
 :root {
+  --top-nav: 64px;
   --bottom-bar: 88px;
   --input-height: 56px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 .home {
   height: 100dvh;
@@ -35,16 +37,20 @@
 }
 
 .chatContainer {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 24px);
+  max-width: 420px;
+  top: var(--top-nav);
+  bottom: calc(
+    var(--bottom-bar) + var(--input-height) + var(--safe-bottom) + 12px
+  );
+  padding: 8px 12px 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
-  max-height: 500px;
-  width: 100%;
-  max-width: 420px;
-  padding: 8px 12px 0;
-  margin-bottom: calc(
-    var(--bottom-bar) + env(safe-area-inset-bottom) + var(--input-height) + 12px
-  );
+  z-index: 1;
 }
 
 .chatArea {
@@ -54,7 +60,8 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   gap: 12px;
   scrollbar-width: none;
 }

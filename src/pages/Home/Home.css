@@ -2,14 +2,14 @@
   width: 160px;
   height: 130px;
 }
+
 .homeWrapper {
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 5rem;
-  padding-bottom: 4.3rem;
+  padding-bottom: 8rem;
 }
 .roulImg {
   width: 380px;
