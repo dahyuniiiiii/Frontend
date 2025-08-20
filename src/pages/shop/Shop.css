@@ -4,8 +4,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 5rem;
-  padding-bottom: 4rem;
+  margin-top: 4rem;
+  padding-bottom: 80px;
 }
 .chip {
   display: inline-block;

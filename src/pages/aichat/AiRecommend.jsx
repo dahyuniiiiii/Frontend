@@ -36,16 +36,15 @@ function AiRecommend() {
   };
 
   return (
-    <div className="home">
-      <div className="recoWrapper">
-        <Ad />
-        <div className="aiRecommendTop">
-          <img className="aiImg" src="/assets/ProjectLogo.svg" alt="logo" />
-
-          <div className="textWrapper">
-            <div className="textTop">천둥이가 골라줬어유!</div>
-            <div className="textBottom">요런 집 어때유?</div>
-          </div>
+    <div className="aiRecoPage">
+      <Ad />
+      <div className="aiRecommendTop">
+        <img className="aiImg" src="/assets/ProjectLogo.svg" alt="logo" />
+      </div>
+      <div className="bottomWrapper">
+        <div className="textWrapper">
+          <div className="textTop">천둥이가 골라줬어유!</div>
+          <div className="textBottom">요런 집 어때유?</div>
         </div>
 
         {loading ? (
@@ -70,11 +69,11 @@ function AiRecommend() {
             </div>
           </div>
         ) : (
-          <div className="recoList">
+          <div className="aiRecoList">
             {stores.map((s, i) => (
               <div
                 key={`${s.name}-${i}`}
-                className="recoItem"
+                className="aiRecoItem"
                 onClick={() => openBestLink(s)}
               >
                 <div className="recoCardContent">

@@ -30,3 +30,6 @@ body,
   overflow: auto;
   min-height: 0;
 }
+.shopBg {
+  background: linear-gradient(to bottom, #ffeec5 0%, #fce0d4 100%);
+}

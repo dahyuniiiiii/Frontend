@@ -1,12 +1,13 @@
 import "./Layout.css";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState("");
   const [isClosing, setIsClosing] = useState(false);
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const isShop = location.pathname === "/shop";
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
   }, [isMenuOpen]);
@@ -22,7 +23,7 @@ function Header() {
     }, 100);
   };
   return (
-    <header className="header">
+    <header className={`header ${isShop ? "shopHeader" : ""}`}>
       <img
         className="headerLogo"
         src="assets/longLogo.svg"
