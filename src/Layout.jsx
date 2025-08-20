@@ -11,10 +11,11 @@ function Layout() {
     location.pathname === "/roulette" ||
     location.pathname === "/rouletteRecommend" ||
     location.pathname === "/ai-recommend";
+  const isHeadHide = location.pathname === "/store-detail";
   return (
     <div className="appWrapper">
       <div className={`app ${isBg ? "shopBg" : ""}`}>
-        {!isHide && <Header />}
+        {!isHide && !isHeadHide && <Header />}
         <main className="main">
           <Outlet />
         </main>
