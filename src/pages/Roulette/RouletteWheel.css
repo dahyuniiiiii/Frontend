@@ -91,14 +91,14 @@
 }
 .sector-0 {
   transform: rotate(0deg);
-  background-color: #ffb9a4;
+  background: #ffb9a4;
 }
 .sector-1 {
   transform: rotate(90deg);
 }
 .sector-2 {
   transform: rotate(180deg);
-  background-color: #ffb9a4;
+  background: #ffb9a4;
 }
 .sector-3 {
   transform: rotate(270deg);

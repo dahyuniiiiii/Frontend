@@ -25,6 +25,7 @@
   font-size: 13px;
   background-color: #ffece7;
   color: #ef776a;
+  font-weight: bold;
 }
 .shopname {
   font-size: 16px;
@@ -64,7 +65,7 @@
 }
 .cardWrapper {
   border: 1px solid #e8e8e8;
-  border-radius: 8px;
+  border-radius: 15px;
   padding: 12px;
   background-color: white;
 }

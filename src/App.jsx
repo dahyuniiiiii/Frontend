@@ -8,10 +8,12 @@ import Shop from "./pages/shop/Shop";
 import Layout from "./Layout";
 import Roulette from "./pages/Roulette/Roulette";
 import RouletteRecommend from "./pages/Roulette/RouletteRecommend";
+import AdPage from "./pages/Roulette/AdPage";
 
 function App() {
   return (
     <Routes>
+      <Route path="/rouletteAd" element={<AdPage />} />
       <Route element={<Layout />}>
         <Route path="/" element={<OnBoard />} />
         <Route path="/home" element={<Home />} />

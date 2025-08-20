@@ -14,9 +14,8 @@ function RouletteResult({ result, onClose }) {
   const handleAskAi = () => navigate("/ai-chat");
 
   const handleGoRecommend = () => {
-    navigate("/rouletteRecommend", {
-      state: { category: result },
-      replace: false,
+    navigate("/rouletteAd", {
+      state: { next: "/rouletteAd", category: result },
     });
   };
 
