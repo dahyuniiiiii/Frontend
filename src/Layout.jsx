@@ -6,9 +6,14 @@ import { Outlet, useLocation } from "react-router-dom";
 function Layout() {
   const location = useLocation();
   const isHide = location.pathname === "/";
+  const isBg =
+    location.pathname === "/shop" ||
+    location.pathname === "/roulette" ||
+    location.pathname === "/rouletteRecommend" ||
+    location.pathname === "/ai-recommend";
   return (
     <div className="appWrapper">
-      <div className="app">
+      <div className={`app ${isBg ? "shopBg" : ""}`}>
         {!isHide && <Header />}
         <main className="main">
           <Outlet />

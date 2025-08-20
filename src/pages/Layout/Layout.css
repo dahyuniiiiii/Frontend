@@ -1,7 +1,7 @@
 .header {
   flex-shrink: 0;
   height: 56px;
-  background: #FFCFCE;
+  /* background: #FFCFCE; */
   display: flex;
   flex-direction: row;
   justify-content: end;
@@ -155,4 +155,7 @@
 }
 .info {
   letter-spacing: -0.5px;
+}
+.shopHeader {
+  background-color: #FFEEC5; 
 }

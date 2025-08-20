@@ -114,7 +114,7 @@
   width: calc(100% - 24px);
   padding: 10px 12px;
   height: var(--input-height);
-  background: transparent;
+  background: #ffffff;
   border-radius: 25px;
   gap: 8px;
   border: 1px solid #e8e8e8;
