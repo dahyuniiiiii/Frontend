@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import api from "../../utils/axios";
 import Ad from "../../Ad";
 import "./Shop.css";
@@ -9,6 +10,7 @@ const SORTS = ["추천 순", "가까운 순"];
 
 function Shop() {
   const location = useLocation();
+  const navigate = useNavigate();
   const initialCat = useMemo(() => {
     const q = new URLSearchParams(location.search).get("q");
     return CATEGORIES.includes(q || "") ? q : "전체";
@@ -96,8 +98,6 @@ function Shop() {
     run();
   }, [selectedCat, sort, coords]);
 
-  const openPlace = (url) => window.open(url || "#", "_blank");
-
   return (
     <div className="shopWrapper">
       <Ad />
@@ -139,7 +139,7 @@ function Shop() {
             <article
               key={s.id || i}
               className="cardWrapper"
-              onClick={() => openPlace(s.place_url)}
+              onClick={() => navigate("/store-detail", { state: { store: s } })}
             >
               <span className="cate">
                 {selectedCat === "전체"

@@ -1,0 +1,63 @@
+.storeDetailWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.topIconWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.topIconWrapper button {
+  background: white;
+  border-radius: 50%;
+  padding: 10px;
+  width: 35px;
+  height: 35px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rightIcons {
+  display: flex;
+  gap: 10px;
+}
+.placename {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #1e1e1e;
+}
+.detailcardWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  width: 23rem;
+  height: 14rem;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+.detailbottom {
+  border-top: 1px solid #e8e8e8;
+  padding: 10px;
+}
+.detailInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+  color: #4b4b4b;
+}
+.detailInfo img {
+  width: 10px;
+  height: 15px;
+}

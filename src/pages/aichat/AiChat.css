@@ -138,6 +138,9 @@
   border: none;
   background: #ef776a;
   border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .sendBtn img {

@@ -47,7 +47,6 @@ function AiChat() {
       ]);
       return;
     }
-
     setStarted(true);
     const userMsg = { sender: "user", text: content };
     setMessages((prev) => [...prev, userMsg]);
@@ -89,7 +88,6 @@ function AiChat() {
   }, [input, loading, buildUserContext]);
 
   const goRecommendByRequestId = async (requestId) => {
-  
     if (!requestId || fetchingStores) return;
     setFetchingStores(true);
     try {

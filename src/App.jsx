@@ -9,6 +9,7 @@ import Layout from "./Layout";
 import Roulette from "./pages/Roulette/Roulette";
 import RouletteRecommend from "./pages/Roulette/RouletteRecommend";
 import AdPage from "./pages/Roulette/AdPage";
+import StoreDetail from "./pages/Detail/StoreDetail";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/ai-chat" element={<AiChat />} />
         <Route path="/ai-recommend" element={<AiRecommend />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/store-detail" element={<StoreDetail />} />
       </Route>
     </Routes>
   );
