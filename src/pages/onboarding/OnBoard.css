@@ -52,7 +52,7 @@ section {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
-  transition-delay: calc(var(--d, 0) * 120ms);
+  transition-delay: calc(var(--d, 0) * 200ms);
 }
 
 .reveal.inview .reveal-item {
