@@ -30,7 +30,7 @@ function AiChat() {
     [messages]
   );
 
-  // setMessages를 하는 로직이 너무 많은데 이걸 따로 함수로 관리하면 좋을 거 같음 
+  // setMessages를 하는 로직이 너무 많은데 이걸 따로 함수로 관리하면 좋을 거 같음
   // 중복 로직이 많은데 하드코딩 되어 있음
   const sendMessage = useCallback(async () => {
     if (loading) return;
@@ -89,6 +89,7 @@ function AiChat() {
   }, [input, loading, buildUserContext]);
 
   const goRecommendByRequestId = async (requestId) => {
+  
     if (!requestId || fetchingStores) return;
     setFetchingStores(true);
     try {
@@ -137,7 +138,7 @@ function AiChat() {
           </div>
         </>
       )}
-{/* 이거 메세지 컴포넌트로 분리해서 쓸 것 */}
+      {/* 이거 메세지 컴포넌트로 분리해서 쓸 것 */}
       <div className="chatContainer">
         <div className="chatArea" ref={chatAreaRef}>
           {messages.map((msg, i) => {
@@ -167,9 +168,7 @@ function AiChat() {
           {(loading || fetchingStores) && (
             <div className="chatBubble ai">
               <p>
-                {loading
-                  ? "천둥이가 대답 만드는 중이에유~"
-                  : "추천 목록 만드는 중이에유~"}
+                {loading ? "잠시만 기다려주세유 대답 만드는 중이에유~" : ""}
               </p>
             </div>
           )}

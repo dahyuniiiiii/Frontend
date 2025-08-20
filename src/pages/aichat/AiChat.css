@@ -84,7 +84,6 @@
   align-self: flex-start;
   background: #f4f4f4;
   border: 1px solid #e8e8e8;
-  border-radius: 25px;
   border-radius: 18px 18px 18px 4px;
 }
 .chatBubble:last-child {
@@ -94,10 +93,12 @@
   border: none;
   padding: 8px 14px;
   border-radius: 15px;
-  background: #ef776a;
+  background: #EF776A;
   color: #ffffff;
   font-weight: bold;
   font-size: 13px;
+  width: 100%;
+  margin: 0.5rem 0;
 }
 
 .inputArea {
