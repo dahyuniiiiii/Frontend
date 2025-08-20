@@ -5,11 +5,23 @@
 .loadingText {
   text-align: center;
 }
+.recoCard {
+  background: #fdfdfd;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 15px;
+  padding: 1px 14px;
+  border: 1px solid #e8e8e8;
+}
 .recoList {
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+.recoCardContent {
+  display: flex;
+  flex-direction: column;
 }
 .recoFirstLine {
   display: flex;
@@ -22,7 +34,15 @@
   color: #ef776a;
   border-radius: 5px;
   padding: 4px 8px;
+  font-weight: bold;
 }
+.recoSecondLine {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
 .recoName {
   color: #1e1e1e;
   font-size: 15px;
@@ -63,4 +83,10 @@
   user-select: none;
   -webkit-user-drag: none;
   pointer-events: none;
+}
+.recoArrow {
+  font-size: 30px;
+  color: #1e1e1e;
+  align-self: center;
+  padding-right: 10px;
 }

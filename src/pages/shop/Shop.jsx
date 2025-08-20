@@ -4,16 +4,7 @@ import api from "../../utils/axios";
 import Ad from "../../Ad";
 import "./Shop.css";
 
-const CATEGORIES = [
-  "전체",
-  "한식",
-  "일식",
-  "중식",
-  "양식",
-  "카페",
-  "간식",
-  "술집",
-];
+const CATEGORIES = ["전체", "한식", "일식", "중식", "양식", "카페", "술집"];
 const SORTS = ["추천 순", "가까운 순"];
 
 function Shop() {

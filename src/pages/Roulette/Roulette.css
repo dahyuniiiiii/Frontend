@@ -31,3 +31,18 @@
   border: none;
   margin-top: 1.5rem;
 }
+.AdWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background-color: rgb(227, 227, 227);
+}
+.AdImage {
+  object-fit: cover;
+  display: block;
+  max-width: 425px;
+  height: 100%;
+}
