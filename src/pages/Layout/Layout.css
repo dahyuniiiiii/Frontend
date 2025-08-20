@@ -100,7 +100,7 @@
   width: 70%;
   max-width: 320px;
   height: 100%;
-   z-index: 10000; 
+  z-index: 10000;
   background-color: white;
   position: relative;
   animation: slideInRight 0.3s ease forwards;
@@ -157,5 +157,5 @@
   letter-spacing: -0.5px;
 }
 .shopHeader {
-  background-color: #FFEEC5; 
+  background-color: #ffeec5;
 }

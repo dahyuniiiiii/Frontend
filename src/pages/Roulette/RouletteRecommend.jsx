@@ -37,7 +37,17 @@ function RouletteRecommend() {
       ({ coords }) => {
         setCoords({ x: String(coords.longitude), y: String(coords.latitude) });
       },
-      (e) => setErr(e?.message || "위치 권한을 허용해 주세요."),
+      (e) => {
+        let errorMessage = "위치 권한을 허용해 주세요.";
+        if (e.code === e.PERMISSION_DENIED) {
+          errorMessage = "위치 권한을 허용해 주세요.";
+        } else if (e.code === e.POSITION_UNAVAILABLE) {
+          errorMessage = "현재 위치 정보를 찾을 수 없어요.";
+        } else if (e.code === e.TIMEOUT) {
+          errorMessage = "위치 정보를 가져오는 데 시간이 초과되었어요.";
+        }
+        setErr(errorMessage);
+      },
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
     );
   }, []);
