@@ -37,13 +37,14 @@ function AiRecommend() {
 
   return (
     <div className="home">
-      <div className="homeWrapper">
+      <div className="recoWrapper">
         <Ad />
         <div className="aiRecommendTop">
           <img className="aiImg" src="/assets/ProjectLogo.svg" alt="logo" />
+
           <div className="textWrapper">
-            <div>천둥이가 골라줬어유!</div>
-            <div>요런 집 어때유?</div>
+            <div className="textTop">천둥이가 골라줬어유!</div>
+            <div className="textBottom">요런 집 어때유?</div>
           </div>
         </div>
 
@@ -76,25 +77,25 @@ function AiRecommend() {
                 className="recoItem"
                 onClick={() => openBestLink(s)}
               >
-                <div className="recoFirstLine">
-                  <span className="recoFirstLineCate">
-                    {s.category1 || "한식"}
-                  </span>
-                  <h3 className="recoName">{s.name}</h3>
-                  <span className="recoChevron" aria-hidden>
-                    ›
-                  </span>
+                <div className="recoCardContent">
+                  <div className="recoFirstLine">
+                    <span className="recoFirstLineCate">
+                      {s.category1 || "한식"}
+                    </span>
+                    <h3 className="recoName">{s.name}</h3>
+                  </div>
+                  <div className="recoSecondLine">
+                    <img
+                      className="recoIcon"
+                      src="/assets/RoulRecom1.svg"
+                      alt=""
+                    />
+                    <span className="recoText">
+                      {s.address || "주소 정보 없음"}
+                    </span>
+                  </div>
                 </div>
-                <div className="recoSecondLine">
-                  <img
-                    className="recoIcon"
-                    src="/assets/RoulRecom1.svg"
-                    alt=""
-                  />
-                  <span className="recoText">
-                    {s.address || "주소 정보 없음"}
-                  </span>
-                </div>
+                <div className="recoArrow">›</div>
               </div>
             ))}
           </div>

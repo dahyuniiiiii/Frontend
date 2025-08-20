@@ -92,7 +92,6 @@ function RouletteRecommend() {
                   key={s.id || i}
                   onClick={() => window.open(s.place_url || "#", "_blank")}
                 >
-                  {" "}
                   <div className="recoCardContent">
                     <div className="recoFirstLine">
                       <span className="recoFirstLineCate">{category}</span>
