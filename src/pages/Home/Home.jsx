@@ -38,7 +38,7 @@ function Home() {
 
         let data;
         if (coords?.x && coords?.y) {
-          const res = await api.post("/api/place/search/distance", {
+          const res = await api.post("/api/place/search/accuracy", {
             ...baseBody,
             x: coords.x,
             y: coords.y,
@@ -83,7 +83,7 @@ function Home() {
 
         <div className="homeShopSec">
           <div className="homeShopHeader">
-            <h2 className="homeShopTitle">내 근처 가게</h2>
+            <h2 className="homeShopTitle">천안 가게</h2>
             <button
               className="homeSeeAllBtn"
               onClick={() => navigate("/shop")}
