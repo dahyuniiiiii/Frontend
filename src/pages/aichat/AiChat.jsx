@@ -7,6 +7,7 @@ function AiChat() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [fetchingStores, setFetchingStores] = useState(false);
   const [started, setStarted] = useState(false);
   const chatAreaRef = useRef(null);
   const navigate = useNavigate();
@@ -16,8 +17,21 @@ function AiChat() {
     requestAnimationFrame(() => {
       chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
     });
-  }, [messages, loading]);
+  }, [messages, loading, fetchingStores]);
 
+  const buildUserContext = useCallback(
+    (extraUserMsg) => {
+      const all = extraUserMsg ? [...messages, extraUserMsg] : [...messages];
+      return all
+        .filter((m) => m.sender === "user")
+        .map((m) => m.text)
+        .join("\n");
+    },
+    [messages]
+  );
+
+  // setMessages를 하는 로직이 너무 많은데 이걸 따로 함수로 관리하면 좋을 거 같음 
+  // 중복 로직이 많은데 하드코딩 되어 있음
   const sendMessage = useCallback(async () => {
     if (loading) return;
 
@@ -25,36 +39,67 @@ function AiChat() {
     if (!content) {
       setMessages((prev) => [
         ...prev,
-        { sender: "ai", text: "뭘 먹고 싶은지 말해줘야 추천해줄 수 있어유~" },
+        {
+          sender: "ai",
+          text: "뭘 먹고 싶은지 말해줘야 추천해줄 수 있어유~",
+          requestId: null,
+        },
       ]);
       return;
     }
 
     setStarted(true);
-
     const userMsg = { sender: "user", text: content };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
     setLoading(true);
 
     try {
-      const fullUserContext = [...messages, userMsg]
-        .filter((m) => m.sender === "user")
-        .map((m) => m.text)
-        .join("\n");
-
-      const res = await api.post("/api/chat/recommend", {
-        message: fullUserContext,
+      const res = await api.post("/api/chat/message", {
+        message: buildUserContext(userMsg),
       });
+      const data = res?.data ?? {};
+      setMessages((prev) => [
+        ...prev,
+        {
+          sender: "ai",
+          text: data.reply || "음... 일단 이렇게 추천해볼게유!",
+          requestId: data.requestId || null,
+        },
+      ]);
+    } catch (e) {
+      const status = e?.response?.status;
+      const extra = e?.response?.data?.message
+        ? `(${e.response.data.message})`
+        : "";
+      setMessages((prev) => [
+        ...prev,
+        {
+          sender: "ai",
+          text:
+            status === 404
+              ? "서버에 문제가 있어유"
+              : `무슨 말인지 못알아들었어유 다시 보내주세유\n${extra}`,
+          requestId: null,
+        },
+      ]);
+    } finally {
+      setLoading(false);
+    }
+  }, [input, loading, buildUserContext]);
 
-      const data = res?.data ?? res ?? {};
-      const aiMsg = {
-        sender: "ai",
-        text: data.reply || "음... 일단 이렇게 추천해볼게유!",
-        stores: Array.isArray(data.stores) ? data.stores : [],
-        intent: data.intent ?? null,
-      };
-      setMessages((prev) => [...prev, aiMsg]);
+  const goRecommendByRequestId = async (requestId) => {
+    if (!requestId || fetchingStores) return;
+    setFetchingStores(true);
+    try {
+      const resStores = await api.get("/api/chat/stores", {
+        params: { requestId },
+      });
+      const stores = Array.isArray(resStores?.data?.stores)
+        ? resStores.data.stores
+        : [];
+      const top3 = stores.slice(0, 3);
+      navigate("/ai-recommend", { state: { stores: top3, requestId } });
     } catch (e) {
       const extra = e?.response?.data?.message
         ? `(${e.response.data.message})`
@@ -63,16 +108,13 @@ function AiChat() {
         ...prev,
         {
           sender: "ai",
-          text: `추천을 불러오지 못했어유. 잠시 후 다시 시도해줘유ㅠㅠ\n${extra}`,
+          text: `추천 목록을 가져오지 못했어유ㅠㅠ ${extra}`,
+          requestId: null,
         },
       ]);
     } finally {
-      setLoading(false);
+      setFetchingStores(false);
     }
-  }, [input, loading, messages]);
-
-  const goRecommend = (stores = []) => {
-    navigate("/ai-recommend", { state: { stores } });
   };
 
   const onKeyDown = (e) => {
@@ -95,7 +137,7 @@ function AiChat() {
           </div>
         </>
       )}
-
+{/* 이거 메세지 컴포넌트로 분리해서 쓸 것 */}
       <div className="chatContainer">
         <div className="chatArea" ref={chatAreaRef}>
           {messages.map((msg, i) => {
@@ -106,23 +148,29 @@ function AiChat() {
                   {msg.text}
                 </p>
 
-                {isAI && Array.isArray(msg.stores) && msg.stores.length > 0 && (
+                {isAI && msg.requestId && (
                   <button
                     className="airecomBtn"
                     type="button"
-                    onClick={() => goRecommend(msg.stores)}
+                    disabled={fetchingStores}
+                    onClick={() => goRecommendByRequestId(msg.requestId)}
                     aria-label="천둥이 Pick 보러가기"
+                    title="천둥이 Pick 보러가기"
                   >
-                    천둥이 Pick 보러가기
+                    {fetchingStores ? "불러오는 중..." : "천둥이 Pick 보러가기"}
                   </button>
                 )}
               </div>
             );
           })}
 
-          {loading && (
+          {(loading || fetchingStores) && (
             <div className="chatBubble ai">
-              <p>추천 목록 만드는 중이에유~</p>
+              <p>
+                {loading
+                  ? "천둥이가 대답 만드는 중이에유~"
+                  : "추천 목록 만드는 중이에유~"}
+              </p>
             </div>
           )}
         </div>
@@ -144,7 +192,7 @@ function AiChat() {
           aria-label="send"
           title="전송"
         >
-          <img src="/assets/sendPointer.svg" />
+          <img src="/assets/sendPointer.svg" alt="send" />
         </button>
       </div>
     </div>
