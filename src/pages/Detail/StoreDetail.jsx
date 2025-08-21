@@ -1,19 +1,58 @@
-import React from "react";
-
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
-import { Map, MapMarker } from "react-kakao-maps-sdk";
-
 import "./StoreDetail.css";
-
 function StoreDetail() {
   const navigate = useNavigate();
-
   const location = useLocation();
-
   const place = location.state?.store;
 
+  const mapContainerRef = useRef(null);
+  const [mapLoaded, setMapLoaded] = useState(false);
+
+  const lat = parseFloat(place?.y) || 37.5665;
+  const lng = parseFloat(place?.x) || 126.9784;
+
+  useEffect(() => {
+    if (!place) return;
+    const script = document.createElement("script");
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${
+      import.meta.env.VITE_KAKAO_KEY
+    }&autoload=false`;
+    script.async = true;
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      window.kakao.maps.load(() => {
+        const map = new window.kakao.maps.Map(mapContainerRef.current, {
+          center: new window.kakao.maps.LatLng(lat, lng),
+          level: 3,
+        });
+
+        const marker = new window.kakao.maps.Marker({
+          position: new window.kakao.maps.LatLng(lat, lng),
+        });
+        marker.setMap(map);
+
+        const infowindow = new window.kakao.maps.InfoWindow({
+          content: `<div style="padding:5px;">${place.place_name}<br/>${
+            place.road_address_name || place.address_name
+          }</div>`,
+        });
+        infowindow.open(map, marker);
+
+        setMapLoaded(true);
+      });
+    };
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, [lat, lng, place]);
+
   if (!place) return <div>매장 정보를 찾을 수 없습니다.</div>;
+
+  const category =
+    place.category_name?.split(" > ")[1] || place.category_name || "정보 없음";
 
   return (
     <div className="storeDetailWrapper">
@@ -34,7 +73,7 @@ function StoreDetail() {
               navigator.share?.({
                 title: place.place_name,
                 text: `${place.place_name} - ${
-                  place.roadAddressName || place.addressName
+                  place.road_address_name || place.address_name
                 }`,
                 url: window.location.href,
               })
@@ -44,9 +83,11 @@ function StoreDetail() {
           </button>
         </div>
       </div>
-      <img className="aiImg" src="/assets/ProjectLogo.svg" alt="로고" />
+      <div className="aiImgWrapper">
+        <img className="aiImg" src="/assets/ProjectLogo.svg" alt="로고" />
+      </div>
       <div className="detailcardWrapper">
-        <span>{place.category_name || "정보 없음"}</span>
+        <span className="detailcate">{category}</span>
         <span className="placename">{place.place_name}</span>
         <div className="detailbottom">
           <div className="detailInfo">
@@ -64,6 +105,10 @@ function StoreDetail() {
             <span>{place.place_url || "정보 없음"}</span>
           </div>
         </div>
+      </div>
+      <span className="mapInfo">위치정보</span>
+      <div className="mapWrapper" ref={mapContainerRef}>
+        {!mapLoaded && <p>지도 로딩 중…</p>}
       </div>
     </div>
   );
