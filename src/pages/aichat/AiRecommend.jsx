@@ -30,11 +30,6 @@ function AiRecommend() {
     fetchStores();
   }, [requestId, stores.length]);
 
-  const openBestLink = (s) => {
-    const url = s?.kakaoLink || s?.googleLink || "#";
-    if (url !== "#") window.open(url, "_blank", "noopener,noreferrer");
-  };
-
   return (
     <div className="aiRecoPage">
       <Ad />
@@ -74,7 +69,9 @@ function AiRecommend() {
               <div
                 key={`${s.name}-${i}`}
                 className="aiRecoItem"
-                onClick={() => openBestLink(s)}
+                onClick={() =>
+                  navigate("/store-detail", { state: { store: s } })
+                }
               >
                 <div className="recoCardContent">
                   <div className="recoFirstLine">

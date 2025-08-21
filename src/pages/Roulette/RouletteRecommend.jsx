@@ -100,7 +100,9 @@ function RouletteRecommend() {
                 <div
                   className="recoCard"
                   key={s.id || i}
-                  onClick={() => window.open(s.place_url || "#", "_blank")}
+                  onClick={() =>
+                    navigate("/store-detail", { state: { store: s } })
+                  }
                 >
                   <div className="recoCardContent">
                     <div className="recoFirstLine">

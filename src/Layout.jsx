@@ -10,7 +10,8 @@ function Layout() {
     location.pathname === "/shop" ||
     location.pathname === "/roulette" ||
     location.pathname === "/rouletteRecommend" ||
-    location.pathname === "/ai-recommend";
+    location.pathname === "/ai-recommend" ||
+    location.pathname === "/store-detail";
   const isHeadHide = location.pathname === "/store-detail";
   return (
     <div className="appWrapper">
