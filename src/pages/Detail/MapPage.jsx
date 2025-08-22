@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./MapPage.css";
 import pinIcon from "./pinIcon.png";
-import myPinIcon from "./myPinIcon.png";
+import mypinIcon from "./mypinIcon.png";
 function MapPage() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -64,7 +64,7 @@ function MapPage() {
 
         if (myMarker.current) myMarker.current.setMap(null);
         const myMarkerImage = new window.kakao.maps.MarkerImage(
-          myPinIcon,
+          mypinIcon,
           new window.kakao.maps.Size(28, 39)
         );
         const marker = new window.kakao.maps.Marker({
