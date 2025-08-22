@@ -91,14 +91,7 @@ function StoreDetail() {
         <div className="detailbottom">
           <div className="detailInfo">
             <img src="/assets/detailmarkIcon.svg" />
-            <a
-              className="placeaddress"
-              href={`https://map.kakao.com/link/map/${place.place_name},${lat},${lng}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {place.road_address_name || place.address_name}
-            </a>
+            <span>{place.road_address_name || place.address_name}</span>
           </div>
           <div className="detailInfo">
             <img src="/assets/detailcallIcon.svg" />
@@ -106,7 +99,13 @@ function StoreDetail() {
           </div>
           <div className="detailInfo">
             <img src="/assets/detailmapIcon.svg" />
-            <span>{place.place_url || "정보 없음"}</span>
+            <a
+              href={`https://map.kakao.com/link/map/${place.place_name},${lat},${lng}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {place.place_url || "정보 없음"}
+            </a>
           </div>
         </div>
       </div>
