@@ -73,7 +73,10 @@ function Home() {
     run();
   }, [coords]);
 
-  const openPlace = (url) => window.open(url || "#", "_blank");
+  const openPlace = (store) => {
+    navigate("/store-detail", { state: { store } });
+  };
+
   const getCate = (s) =>
     s?.category_name
       ? s.category_name.split(" > ")[1] || s.category_name
@@ -112,7 +115,7 @@ function Home() {
                 <article
                   key={s.id || i}
                   className="homeShopCard"
-                  onClick={() => openPlace(s.place_url)}
+                  onClick={() => openPlace(s)}
                 >
                   <span className="homeCate">{getCate(s)}</span>
                   <h3 className="homeShopName">{s.place_name}</h3>
