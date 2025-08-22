@@ -78,16 +78,12 @@ function AiRecommend() {
                     <span className="recoFirstLineCate">
                       {s.category1 || "한식"}
                     </span>
-                    <h3 className="recoName">{s.name}</h3>
+                    <h3 className="recoName">{s.place_name}</h3>
                   </div>
                   <div className="recoSecondLine">
-                    <img
-                      className="recoIcon"
-                      src="/assets/RoulRecom1.svg"
-                      alt=""
-                    />
+                    <img className="recoIcon" src="/assets/RoulRecom1.svg" />
                     <span className="recoText">
-                      {s.address || "주소 정보 없음"}
+                      {s.road_address_name || "주소 정보 없음"}
                     </span>
                   </div>
                 </div>
