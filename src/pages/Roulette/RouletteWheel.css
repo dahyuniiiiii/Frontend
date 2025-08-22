@@ -104,21 +104,3 @@
 .sector-3 {
   transform: rotate(270deg);
 }
-.wheel::before,
-.wheel::after {
-  content: "";
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background: white;
-  border-radius: 50%;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 
-    0 0 0 white,
-    120px 120px white,
-    -120px 120px white,
-    120px -120px white,
-    -120px -120px white; /* 원하는 위치에 여러 개 찍기 */
-}

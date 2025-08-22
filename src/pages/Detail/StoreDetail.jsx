@@ -17,7 +17,7 @@ function StoreDetail() {
   useEffect(() => {
     if (!place) return;
     const script = document.createElement("script");
-    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${
+    script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${
       import.meta.env.VITE_KAKAO_KEY
     }&autoload=false`;
     script.async = true;
