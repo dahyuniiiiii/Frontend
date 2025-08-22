@@ -75,7 +75,7 @@ function MapPage() {
         myMarker.current = marker;
       },
       () => {
-        alert("위치 정보를 가져올 수 없어요 😢");
+        alert("위치 정보를 가져올 수 없어요");
       }
     );
   };
@@ -92,7 +92,7 @@ function MapPage() {
           <img src="/assets/locateIcon.svg" />
         </button>
         <div className="fullMapWrapper" ref={mapRef}>
-          {!mapLoaded && <p>지도 로딩 중…</p>}
+          {!mapLoaded && <p>지도를 불러올 수 없습니다.</p>}
         </div>
       </div>
       {place && (

@@ -14,13 +14,7 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module">
-      const kakaoKey = import.meta.env.VITE_KAKAO_KEY;
-      const script = document.createElement("script");
-      script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoKey}&autoload=false`;
-      script.async = true;
-      document.head.appendChild(script);
-    </script>
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=23dec856ec40167bc29aa4613a3b9187&autoload=false"></script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
