@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./StoreDetail.css";
+import pinIcon from "./pinIcon.png";
+
 function StoreDetail() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -27,18 +29,15 @@ function StoreDetail() {
           center: new window.kakao.maps.LatLng(lat, lng),
           level: 3,
         });
-
+        const markerImage = new window.kakao.maps.MarkerImage(
+          pinIcon,
+          new window.kakao.maps.Size(28, 39)
+        );
         const marker = new window.kakao.maps.Marker({
           position: new window.kakao.maps.LatLng(lat, lng),
+          image: markerImage,
         });
         marker.setMap(map);
-
-        const infowindow = new window.kakao.maps.InfoWindow({
-          content: `<div style="padding:5px;">${place.place_name}<br/>${
-            place.road_address_name || place.address_name
-          }</div>`,
-        });
-        infowindow.open(map, marker);
 
         setMapLoaded(true);
       });

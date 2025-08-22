@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./MapPage.css";
-
+import pinIcon from "./pinIcon.png";
 function MapPage() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -9,7 +9,7 @@ function MapPage() {
 
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
-  const myMarker = useRef(null); 
+  const myMarker = useRef(null);
   const [mapLoaded, setMapLoaded] = useState(false);
 
   const lat = parseFloat(place?.y) || 36.8151;
@@ -31,19 +31,15 @@ function MapPage() {
           level: 3,
         });
         mapInstance.current = map;
-
+        const markerImage = new window.kakao.maps.MarkerImage(
+          pinIcon,
+          new window.kakao.maps.Size(28, 39)
+        );
         const marker = new window.kakao.maps.Marker({
           position: new window.kakao.maps.LatLng(lat, lng),
+          image: markerImage,
         });
         marker.setMap(map);
-
-        const infowindow = new window.kakao.maps.InfoWindow({
-          content: `<div style="padding:5px;">${place.place_name}<br/>${
-            place.road_address_name || place.address_name
-          }</div>`,
-        });
-        infowindow.open(map, marker);
-
         setMapLoaded(true);
       });
     };
@@ -67,10 +63,7 @@ function MapPage() {
         if (myMarker.current) myMarker.current.setMap(null);
         const marker = new window.kakao.maps.Marker({
           position: loc,
-          image: new window.kakao.maps.MarkerImage(
-            "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png", 
-            new window.kakao.maps.Size(24, 35)
-          ),
+          image: pinIcon,
         });
         marker.setMap(mapInstance.current);
         myMarker.current = marker;
