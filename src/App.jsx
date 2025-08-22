@@ -10,6 +10,7 @@ import Roulette from "./pages/Roulette/Roulette";
 import RouletteRecommend from "./pages/Roulette/RouletteRecommend";
 import AdPage from "./pages/Roulette/AdPage";
 import StoreDetail from "./pages/Detail/StoreDetail";
+import MapPage from "./pages/Detail/MapPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/ai-recommend" element={<AiRecommend />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/store-detail" element={<StoreDetail />} />
+        <Route path="/map" element={<MapPage />} />
       </Route>
     </Routes>
   );

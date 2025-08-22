@@ -9,8 +9,8 @@ function StoreDetail() {
   const mapContainerRef = useRef(null);
   const [mapLoaded, setMapLoaded] = useState(false);
 
-  const lat = parseFloat(place?.y) || 37.5665;
-  const lng = parseFloat(place?.x) || 126.9784;
+  const lat = parseFloat(place?.y) || 36.8151;
+  const lng = parseFloat(place?.x) || 127.1139;
 
   useEffect(() => {
     if (!place) return;
@@ -109,6 +109,12 @@ function StoreDetail() {
       <span className="mapInfo">위치정보</span>
       <div className="mapWrapper" ref={mapContainerRef}>
         {!mapLoaded && <p>지도 로딩 중…</p>}
+        <button
+          className="mapViewBtn"
+          onClick={() => navigate("/map", { state: { store: place } })}
+        >
+          지도보기
+        </button>
       </div>
     </div>
   );

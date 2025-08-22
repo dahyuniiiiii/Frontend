@@ -5,7 +5,7 @@ import { Outlet, useLocation } from "react-router-dom";
 
 function Layout() {
   const location = useLocation();
-  const isHide = location.pathname === "/";
+  const isHide = location.pathname === "/" || location.pathname === "/map";
   const isBg =
     location.pathname === "/shop" ||
     location.pathname === "/roulette" ||
