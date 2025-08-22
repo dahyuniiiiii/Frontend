@@ -10,7 +10,7 @@ function OnBoard() {
   return (
     <div>
       <section className="IntroArea">
-        <img src="/assets/longLogo.svg"></img>
+        <img src="/assets/longLogo.png"></img>
         <p>
           |<br />
           scroll

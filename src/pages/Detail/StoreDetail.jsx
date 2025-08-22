@@ -91,9 +91,14 @@ function StoreDetail() {
         <div className="detailbottom">
           <div className="detailInfo">
             <img src="/assets/detailmarkIcon.svg" />
-            <span className="placeaddress">
+            <a
+              className="placeaddress"
+              href={`https://map.kakao.com/link/map/${place.place_name},${lat},${lng}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {place.road_address_name || place.address_name}
-            </span>
+            </a>
           </div>
           <div className="detailInfo">
             <img src="/assets/detailcallIcon.svg" />

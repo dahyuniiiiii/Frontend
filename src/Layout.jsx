@@ -13,6 +13,7 @@ function Layout() {
     location.pathname === "/ai-recommend" ||
     location.pathname === "/store-detail";
   const isHeadHide = location.pathname === "/store-detail";
+  const isFooterHide = location.pathname === "/ai-chat";
   return (
     <div className="appWrapper">
       <div className={`app ${isBg ? "shopBg" : ""}`}>
@@ -20,7 +21,7 @@ function Layout() {
         <main className="main">
           <Outlet />
         </main>
-        {!isHide && <Footer />}
+        {!isHide && !isFooterHide && <Footer />}
       </div>
     </div>
   );

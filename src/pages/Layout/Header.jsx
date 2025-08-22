@@ -26,7 +26,7 @@ function Header() {
     <header className={`header ${isShop ? "shopHeader" : ""}`}>
       <img
         className="headerLogo"
-        src="assets/longLogo.svg"
+        src="assets/longLogo.png"
         onClick={() => navigate("/home")}
       />
       <img

@@ -22,6 +22,7 @@ function Shop() {
   const [stores, setStores] = useState([]);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState("");
+  const [showSortSheet, setShowSortSheet] = useState(false);
 
   useEffect(() => {
     if (!("geolocation" in navigator)) {
@@ -117,17 +118,9 @@ function Shop() {
       </div>
 
       <div className="optionBarRow">
-        <select
-          className="optionBar"
-          value={sort}
-          onChange={(e) => setSort(e.target.value)}
-        >
-          {SORTS.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
-          ))}
-        </select>
+        <button className="optionBar" onClick={() => setShowSortSheet(true)}>
+          {sort} <img src="assets/optionIcon.svg" />
+        </button>
       </div>
 
       {loading && <div>불러오는 중…</div>}
@@ -158,6 +151,34 @@ function Shop() {
               </div>
             </article>
           ))}
+        </div>
+      )}
+      {showSortSheet && (
+        <div
+          className="bottomSheetOverlay"
+          onClick={() => setShowSortSheet(false)}
+        >
+          <div className="bottomSheet" onClick={(e) => e.stopPropagation()}>
+            <h4 className="sheetTitle">매장 정렬</h4>
+            {SORTS.map((s) => (
+              <button
+                key={s}
+                className={`sheetOption ${sort === s ? "selected" : ""}`}
+                onClick={() => {
+                  setSort(s);
+                  setShowSortSheet(false);
+                }}
+              >
+                {s}{" "}
+                {sort === s && (
+                  <img className="optionCheck"
+                    src="/assets/optionCheck.svg"
+                    alt="선택됨"
+                  />
+                )}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>
