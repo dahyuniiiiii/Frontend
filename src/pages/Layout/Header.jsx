@@ -44,7 +44,7 @@ function Header() {
               className="sidebarClose"
               onClick={() => setIsMenuOpen(false)}
             >
-              x
+              <img src="assets/noIcon.svg"/>
             </button>
             <ul>
               <li
@@ -76,7 +76,7 @@ function Header() {
               </li>
             </ul>
             <div className="catebottom">
-              <img src="assets/longLogo.svg" className="menulogo" />
+              <img src="assets/longLogo.png" className="menulogo" />
               <span className="info">© PIT STOP. All rights reserved</span>
             </div>
           </div>

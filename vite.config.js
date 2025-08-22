@@ -21,7 +21,7 @@ export default defineConfig({
             type: "image/png",
           },
           {
-            src: "/appLogo.png",
+            src: "/iappLogo.png",
             sizes: "512x512",
             type: "image/png",
           },
