@@ -88,7 +88,7 @@ function Home() {
         <img className="aiImg" src="assets/ProjectLogo.svg" />
         <img
           className="roulImg"
-          src="assets/mainRoul.svg"
+          src="assets/mainRoul.png"
           onClick={() => {
             navigate("/roulette");
           }}

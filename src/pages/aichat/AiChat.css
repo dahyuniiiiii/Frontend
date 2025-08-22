@@ -107,7 +107,7 @@
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  bottom: calc(var(--bottom-bar) + env(safe-area-inset-bottom) + 12px);
+  bottom: 40px;
   z-index: 1;
   display: flex;
   align-items: center;
