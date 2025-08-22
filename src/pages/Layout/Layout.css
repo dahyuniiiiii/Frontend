@@ -1,7 +1,6 @@
 .header {
   flex-shrink: 0;
   height: 56px;
-  /* background: #FFCFCE; */
   display: flex;
   flex-direction: row;
   justify-content: end;
@@ -135,7 +134,10 @@
 }
 
 .menuItem.active {
-  background-color: #ffece7;
+  background: linear-gradient(
+    to right,
+    #EF776A 5%, #FFECE7 5% 
+  );
 }
 
 .menuIcon {
@@ -153,8 +155,11 @@
   align-items: center;
   flex-direction: column;
 }
+
 .info {
   letter-spacing: -0.5px;
+  position: absolute;
+  bottom: 20px;
 }
 .shopHeader {
   background-color: #ffeec5;

@@ -31,7 +31,7 @@
 .resultmodal {
   box-sizing: border-box;
   width: 90%;
-  max-width: 360px;
+  max-width: 350px;
   height: 55vh;
   padding: 3rem 1.5rem;
   border-radius: 15px;
@@ -43,7 +43,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #fffbf2;
+  background-color: #fdfdfd;
 }
 .modalClose {
   position: absolute;
@@ -56,22 +56,24 @@
   font-size: 24px;
 }
 .resultTextb {
-  font-size: 27px;
+  font-size: 25px;
   color: #ef776a;
-  font-family: "BM Euljiro", sans-serif;
+  font-family: "Jalnan", sans-serif;
 }
 
 .resultText {
-  font-size: 27px;
+  font-size: 22px;
   color: #3d1209;
-  font-family: "BM Euljiro", sans-serif;
+  font-family: "Jalnan", sans-serif;
+  margin-bottom: 0.2rem;
+  margin-top: 1rem;
 }
 @font-face {
-  font-family: "BM Euljiro";
-  src: url("/font/BMEuljiro.ttf") format("truetype");
-  font-display: swap;
-  font-weight: normal;
+  font-family: "Jalnan";
+  src: url("/font/Jalnan") format("truetype");
+  font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 .resultImg {
   width: 200px;
@@ -82,11 +84,24 @@
   flex-direction: row;
   gap: 1rem;
 }
-.resultButtons button {
+.resultButton{
+  display: flex;
+  gap:1rem;
+}
+.resultButtons {
   border: 2px solid #ef776a;
   border-radius: 30px;
   background-color: white;
   color: #ef776a;
+  font-size: 14px;
+  padding: 0.8rem 1.2rem;
+  font-weight: 500;
+}
+.resultButton2 {
+  border: 2px solid #ef776a;
+  border-radius: 30px;
+  background-color: #ef776a;
+  color: white;
   font-size: 14px;
   padding: 0.8rem 1.2rem;
   font-weight: 500;

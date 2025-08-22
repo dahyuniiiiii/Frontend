@@ -23,7 +23,7 @@ function RouletteResult({ result, onClose }) {
     <div className="modalWrapper">
       <div className="resultmodal">
         <button className="modalClose" onClick={onClose}>
-          x
+          <img src="assets/noIcon.svg"/>
         </button>
 
         <span className="resultText">룰렛 결과</span>
@@ -31,9 +31,13 @@ function RouletteResult({ result, onClose }) {
 
         <img src={images[result]} alt={result} className="resultImg" />
 
-        <div className="resultButtons">
-          <button onClick={handleAskAi}>천둥이한테 물어보기</button>
-          <button onClick={handleGoRecommend}>추천식당 보기</button>
+        <div className="resultButton">
+          <button className="resultButtons" onClick={handleAskAi}>
+            천둥이한테 물어보기
+          </button>
+          <button className="resultButton2" onClick={handleGoRecommend}>
+            추천식당 보기
+          </button>
         </div>
       </div>
     </div>

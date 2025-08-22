@@ -24,14 +24,19 @@ function Roulette() {
 
   return (
     <div className="rouletteWrapper">
-      <p className="rouletteInfo">
-        고민은 짧게, 선택은 랜덤으로! <br />
-        오늘 메뉴 추천 드릴게유
-      </p>
-      <RouletteWheel ref={wheelRef} onResult={handleResult} />
-      <button className="goRulette" onClick={handleSpinClick}>
-        룰렛 돌리기
-      </button>
+      <div className="rouletteInfo">
+        <span className="rouletteInfot">
+          고민은 짧게, 선택은 랜덤으로!
+          <br />
+        </span>
+        <span>오늘 메뉴 추천 드릴게유</span>
+      </div>
+      <div className="roulewapper">
+        <RouletteWheel ref={wheelRef} onResult={handleResult} />
+        <button className="goRulette" onClick={handleSpinClick}>
+          룰렛 돌리기
+        </button>
+      </div>
       {open && <RouletteResult result={result} onClose={handleClose} />}
     </div>
   );

@@ -107,7 +107,7 @@ function StoreDetail() {
       </div>
       <span className="mapInfo">위치정보</span>
       <div className="mapWrapper" ref={mapContainerRef}>
-        {!mapLoaded && <p>지도 로딩 중…</p>}
+        {!mapLoaded && <p>지도를 불러올 수 없습니다.</p>}
         <button
           className="mapViewBtn"
           onClick={() => navigate("/map", { state: { store: place } })}
