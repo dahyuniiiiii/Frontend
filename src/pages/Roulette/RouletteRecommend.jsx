@@ -120,7 +120,7 @@ function RouletteRecommend() {
                     </div>
                   </div>
                   <div className="recoArrow">
-                    <img src="assets/recoArrow" />
+                    <img src="assets/recoArrow.svg" />
                   </div>
                 </div>
               ))}
