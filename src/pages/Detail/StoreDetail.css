@@ -102,3 +102,7 @@
   font-size: 13px;
   z-index: 2;
 }
+.detailInfo img{
+  width: 15px;
+  height: 15px;
+}
