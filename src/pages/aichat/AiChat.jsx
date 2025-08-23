@@ -58,12 +58,26 @@ function AiChat() {
         message: buildUserContext(userMsg),
       });
       const data = res?.data ?? {};
+      let hasStores = false;
+      if (data.requestId) {
+        try {
+          const resStores = await api.get("/api/chat/stores", {
+            params: { requestId: data.requestId },
+          });
+          hasStores =
+            Array.isArray(resStores?.data?.stores) &&
+            resStores.data.stores.length > 0;
+        } catch {
+          hasStores = false;
+        }
+      }
       setMessages((prev) => [
         ...prev,
         {
           sender: "ai",
           text: data.reply || "음... 일단 이렇게 추천해볼게유!",
           requestId: data.requestId || null,
+          hasStores,
         },
       ]);
     } catch (e) {
@@ -98,19 +112,10 @@ function AiChat() {
         ? resStores.data.stores
         : [];
       const top3 = stores.slice(0, 3);
-      navigate("/ai-recommend", { state: { stores: top3, requestId } });
-    } catch (e) {
-      const extra = e?.response?.data?.message
-        ? `(${e.response.data.message})`
-        : "";
-      setMessages((prev) => [
-        ...prev,
-        {
-          sender: "ai",
-          text: `추천 목록을 가져오지 못했어유ㅠㅠ ${extra}`,
-          requestId: null,
-        },
-      ]);
+
+      if (top3.length > 0) {
+        navigate("/ai-recommend", { state: { stores: top3, requestId } });
+      }
     } finally {
       setFetchingStores(false);
     }
@@ -147,7 +152,7 @@ function AiChat() {
                   {msg.text}
                 </p>
 
-                {isAI && msg.requestId && (
+                {isAI && msg.requestId && msg.hasStores && (
                   <button
                     className="airecomBtn"
                     type="button"
@@ -163,11 +168,9 @@ function AiChat() {
             );
           })}
 
-          {(loading || fetchingStores) && (
+          {loading && (
             <div className="chatBubble ai">
-              <p>
-                {loading ? "잠시만 기다려주세유 대답 만드는 중이에유~" : ""}
-              </p>
+              <p>잠시만 기다려주세유 대답 만드는 중이에유~</p>
             </div>
           )}
         </div>
@@ -179,6 +182,9 @@ function AiChat() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={onKeyDown}
+          onFocus={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
           placeholder="텍스트를 입력하세요."
         />
         <button
