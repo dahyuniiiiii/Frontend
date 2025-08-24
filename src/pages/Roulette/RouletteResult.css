@@ -56,13 +56,13 @@
   font-size: 24px;
 }
 .resultTextb {
-  font-size: 25px;
+  font-size: 24px;
   color: #ef776a;
   font-family: "Jalnan", sans-serif;
 }
 
 .resultText {
-  font-size: 22px;
+  font-size: 24px;
   color: #3d1209;
   font-family: "Jalnan", sans-serif;
   margin-bottom: 0.2rem;
@@ -93,7 +93,7 @@
   border-radius: 30px;
   background-color: white;
   color: #ef776a;
-  font-size: 14px;
+  font-size: 13px;
   padding: 0.8rem 1.2rem;
   font-weight: 500;
 }
@@ -102,7 +102,7 @@
   border-radius: 30px;
   background-color: #ef776a;
   color: white;
-  font-size: 14px;
+  font-size: 13px;
   padding: 0.8rem 1.2rem;
   font-weight: 500;
 }

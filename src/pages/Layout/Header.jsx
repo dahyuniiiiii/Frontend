@@ -8,7 +8,9 @@ function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const isShop =
-    location.pathname === "/shop" || location.pathname === "/ai-recommend";
+    location.pathname === "/shop" ||
+    location.pathname === "/ai-recommend" ||
+    location.pathname === "/rouletteRecommend";
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
