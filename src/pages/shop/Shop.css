@@ -141,3 +141,6 @@
   text-align: right;
   align-items: center;
 }
+.sheetOption:last-child {
+  margin-bottom: 1rem;
+}

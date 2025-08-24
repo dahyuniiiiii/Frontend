@@ -182,9 +182,6 @@ function AiChat() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={onKeyDown}
-          onFocus={() => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
           placeholder="텍스트를 입력하세요."
         />
         <button

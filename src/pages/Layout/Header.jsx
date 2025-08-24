@@ -1,27 +1,28 @@
 import "./Layout.css";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [selectedMenu, setSelectedMenu] = useState("");
   const [isClosing, setIsClosing] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const isShop = location.pathname === "/shop";
+  const isShop =
+    location.pathname === "/shop" || location.pathname === "/ai-recommend";
+
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
   }, [isMenuOpen]);
 
   const handleMenuClick = (menu) => {
-    setSelectedMenu(menu);
     setIsClosing(true);
-
     setTimeout(() => {
       setIsMenuOpen(false);
       setIsClosing(false);
       navigate(`/${menu}`);
     }, 100);
   };
+
   return (
     <header className={`header ${isShop ? "shopHeader" : ""}`}>
       <img
@@ -44,12 +45,12 @@ function Header() {
               className="sidebarClose"
               onClick={() => setIsMenuOpen(false)}
             >
-              <img src="assets/noIcon.svg"/>
+              <img src="assets/noIcon.svg" />
             </button>
             <ul>
               <li
                 className={`menuItem ${
-                  selectedMenu === "ai-chat" ? "active" : ""
+                  location.pathname === "/ai-chat" ? "active" : ""
                 }`}
                 onClick={() => handleMenuClick("ai-chat")}
               >
@@ -58,7 +59,7 @@ function Header() {
               </li>
               <li
                 className={`menuItem ${
-                  selectedMenu === "shop" ? "active" : ""
+                  location.pathname === "/shop" ? "active" : ""
                 }`}
                 onClick={() => handleMenuClick("shop")}
               >
@@ -67,7 +68,7 @@ function Header() {
               </li>
               <li
                 className={`menuItem ${
-                  selectedMenu === "roulette" ? "active" : ""
+                  location.pathname === "/roulette" ? "active" : ""
                 }`}
                 onClick={() => handleMenuClick("roulette")}
               >
