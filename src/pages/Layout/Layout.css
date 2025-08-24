@@ -42,6 +42,10 @@
   padding: 0 16px;
   box-sizing: border-box;
 }
+.footerBtn.active {
+  color: #EF776A;
+  font-weight: 500;
+}
 .footerBtn {
   width: 64px;
   height: 64px;
@@ -121,7 +125,7 @@
 }
 
 .sidebarMenu li {
-  font-size: 1.2rem;
+  font-size: 16px;
   cursor: pointer;
 }
 
@@ -134,10 +138,7 @@
 }
 
 .menuItem.active {
-  background: linear-gradient(
-    to right,
-    #EF776A 5%, #FFECE7 5% 
-  );
+  background: linear-gradient(to right, #ef776a 5%, #ffece7 5%);
 }
 
 .menuIcon {

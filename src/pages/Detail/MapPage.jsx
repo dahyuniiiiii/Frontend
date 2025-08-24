@@ -9,6 +9,8 @@ function MapPage() {
   const place = location.state?.store;
 
   const mapRef = useRef(null);
+  const storePosition = useRef(null);
+
   const mapInstance = useRef(null);
   const myMarker = useRef(null);
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -42,6 +44,8 @@ function MapPage() {
           image: markerImage,
         });
         marker.setMap(map);
+        storePosition.current = new window.kakao.maps.LatLng(lat, lng);
+
         setMapLoaded(true);
       });
     };
@@ -81,6 +85,11 @@ function MapPage() {
   };
 
   if (!place) return <div>매장 정보를 불러올 수 없습니다.</div>;
+  const handleStoreLocation = () => {
+    if (storePosition.current && mapInstance.current) {
+      mapInstance.current.setCenter(storePosition.current);
+    }
+  };
 
   return (
     <div className="mapPageWrapper">
@@ -96,7 +105,7 @@ function MapPage() {
         </div>
       </div>
       {place && (
-        <div className="mapBottomCard">
+        <div className="mapBottomCard" onClick={handleStoreLocation}>
           <div className="bottomCate">
             <span className="mapBottomCate">
               {place.category_name?.split(" > ")[1] ||

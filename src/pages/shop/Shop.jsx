@@ -144,7 +144,7 @@ function Shop() {
               <h3 className="shopname">{s.place_name}</h3>
 
               <div className="shopbottom">
-                <img className="icon" src="/assets/RoulRecom1.svg" alt="" />
+                <img className="icon" src="/assets/shopmap.svg" />
                 <span className="shop-txt">
                   {s.road_address_name || s.address_name}
                 </span>

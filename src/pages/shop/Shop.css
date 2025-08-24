@@ -16,16 +16,22 @@
   background-color: white;
   font-size: 16px;
   color: #ef776a;
-  flex: 0 0 auto;
+  width: 85px;
+  height: 35px;
   white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .cate {
   border-radius: 5px;
-  padding: 4px 10px;
+  color: #ef776a;
+  padding: 4px 15px;
   font-size: 13px;
   background-color: #ffece7;
   color: #ef776a;
-  font-weight: bold;
+  font-weight: 600;
 }
 .shopname {
   font-size: 16px;
@@ -43,15 +49,15 @@
   height: 35px;
   color: #8d8d8d;
   background-color: white;
-  padding-left: 0.5rem;
+  display: inline-block;
+
 }
 .shopbottom {
   display: flex;
   align-items: flex-start;
-  justify-self: center;
 }
 .shop-txt {
-  font-size: 12px;
+  font-size: 13px;
 }
 .chip.active,
 .chip[aria-pressed="true"] {

@@ -61,7 +61,6 @@
   flex-wrap: nowrap;
   gap: 10px;
   overflow-x: auto;
-
   padding: 0 16px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -82,15 +81,16 @@
 .homeCate {
   display: inline-block;
   border-radius: 5px;
-  padding: 4px 8px;
-  font-size: 12px;
+  padding: 4px 15px;
+  font-size: 13px;
   background-color: #ffece7;
   color: #ef776a;
   margin-bottom: 6px;
+  font-weight: 600;
 }
 
 .homeShopName {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.25;
   margin: 2px 0 8px;
   font-weight: 600;
@@ -111,7 +111,7 @@
 }
 
 .homeShopAddr {
-  font-size: 12px;
+  font-size: 13px;
   color: #4b4b4b;
   line-height: 1.3;
 }

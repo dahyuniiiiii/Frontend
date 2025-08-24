@@ -30,7 +30,13 @@ function Footer() {
         className={`footerBtn ${location.pathname === "/shop" ? "active" : ""}`}
         onClick={() => navigate("/shop")}
       >
-        <img src="assets/shopLogo.png" />
+        <img
+          src={
+            location.pathname === "/shop"
+              ? "assets/shopLogoac.svg"
+              : "assets/shopLogo.png"
+          }
+        />
         <div>천안도감</div>
       </div>
     </footer>
