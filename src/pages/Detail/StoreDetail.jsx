@@ -110,9 +110,9 @@ function StoreDetail() {
             지도보기
           </button>
         </div>
-        <button className="detailBtn">
+        <a href={place.place_url} target="_blank" className="detailBtn">
           <img src="/assets/kakaomap.svg" />
-        </button>
+        </a>
       </div>
     </div>
   );
