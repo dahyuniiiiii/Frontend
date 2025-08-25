@@ -40,7 +40,7 @@
 ‘오늘 뭐 먹어유’는 단순히 맛집 정보를 제공하는 것을 넘어, 지역 사회에 긍정적인 가치를 창출하는 것을 목표를 한다.
 
 <div align="center"><a href="https://wearepitstop.vercel.app"><b>배포 링크</b></a></div>
-<div align="center"><a href="public/assets/your-ppt.pdf"  target="_blank" ><b>피피티</b></a></div>
+<div align="center"><a href="public/assets/백석대_PITSTOP_오늘뭐땡겨유.pdf"  target="_blank" ><b>피피티</b></a></div>
 
 ## 🙋🏻‍♀️ Our Teams
 
@@ -149,12 +149,10 @@
 
 <div align="center">
   <img src="public/assets/시스템아키텍쳐.png" width="500" />
-  <br>
 </div>
 
 ## 🧩 플로우차트
 
 <div align="center">
-  <img src="public/assets/longLogo.png" width="300" height="300" />
-  <br>
+  <img src="public/assets/플로우차트.png" width="500" />
 </div>
