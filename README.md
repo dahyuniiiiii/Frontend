@@ -40,8 +40,7 @@
 ‘오늘 뭐 먹어유’는 단순히 맛집 정보를 제공하는 것을 넘어, 지역 사회에 긍정적인 가치를 창출하는 것을 목표를 한다.
 
 <div align="center"><a href="https://wearepitstop.vercel.app"><b>배포 링크</b></a></div>
-<div align="center"><a href=""><b>피피티</b></a></div>
-<div align="center"><a href=""><b>QA</b></a></div>
+<div align="center"><a href="public/assets/your-ppt.pdf"  target="_blank" ><b>피피티</b></a></div>
 
 ## 🙋🏻‍♀️ Our Teams
 
@@ -115,37 +114,47 @@
     <td align="center"><strong>메인</strong></td>
   </tr>
   <tr>
-    <td><img src="public/assets/example.gif" width="400" style="display: block; margin: auto;"/></td>
-    <td><img src="public/assets/example.gif" width="400" style="display: block; margin: auto;"/></td>
+    <td><img src="public/assets/온보딩.gif" width="400" style="display: block; margin: auto;"/></td>
+    <td><img src="public/assets/메인.gif" width="400" style="display: block; margin: auto;"/></td>
   </tr>
   <tr>
     <td align="center"><strong>천안도감</strong></td>
     <td align="center"><strong>챗봇</strong></td>
   </tr>
   <tr>
-    <td><img src="public/assets/example.gif" width="400" style="display: block; margin: auto;"/></td>
-    <td><img src="public/assets/example.gif" width="400" style="display: block; margin: auto;"/></td>
+    <td><img src="public/assets/천안도감.gif" width="400" style="display: block; margin: auto;"/></td>
+    <td><img src="public/assets/챗봇.gif" width="400" style="display: block; margin: auto;"/></td>
   </tr>
   <tr>
     <td align="center"><strong>룰렛</strong></td>
     <td align="center"><strong>룰렛 결과</strong></td>
   </tr>
   <tr>
-    <td><img src="public/assets/example.gif" width="400" style="display: block; margin: auto;"/></td>
-    <td><img src="public/assets/example.gif" width="400" style="display: block; margin: auto;"/></td>
+    <td><img src="public/assets/룰렛.gif" width="400" style="display: block; margin: auto;"/></td>
+    <td><img src="public/assets/룰렛결과.gif" width="400" style="display: block; margin: auto;"/></td>
   </tr>
   <tr>
     <td align="center"><strong>식당상세정보</strong></td>
     <td align="center"><strong>지도</strong></td>
   </tr>
   <tr>
-    <td align= "center"><img src="public/assets/example.gif" width="250" style="display: block; margin: auto;"/></td>
-    <td><img src="public/assets/example.gif" width="400" style="display: block; margin: auto;"/></td>
+    <td align= "center"><img src="public/assets/식당상세.gif" width="250" style="display: block; margin: auto;"/></td>
+    <td><img src="public/assets/지도.gif" width="400" style="display: block; margin: auto;"/></td>
   </tr>
 </table>
 
 </div>
 
-## 💻 정보구조설계
+## 💻 시스템아키텍쳐
+
+<div align="center">
+  <img src="public/assets/시스템아키텍쳐.png" width="500" />
+  <br>
+</div>
 
 ## 🧩 플로우차트
+
+<div align="center">
+  <img src="public/assets/longLogo.png" width="300" height="300" />
+  <br>
+</div>
