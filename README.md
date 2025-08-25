@@ -67,7 +67,7 @@
       <td><img src="public/assets/이유정.png" width="150"/></td>
       <td><img src="public/assets/정혜영.png" width="150"/></td>
       <td><img src="public/assets/장하늘.png" width="150"/></td>
-      <td><img src="public/assets/이유정.png" width="150"/></td>
+      <td><img src="public/assets/오다현.png" width="150"/></td>
       <td><img src="public/assets/김양현.png" width="150"/></td>
       <td><img src="public/assets/황윤성.png" width="150"/></td>
     </tr>
@@ -115,40 +115,32 @@
     <td align="center"><strong>메인</strong></td>
   </tr>
   <tr>
-    <td><img src="" width="400" style="display: block; margin: auto;"/></td>
-    <td><img src="" width="400" style="display: block; margin: auto;"/></td>
+    <td><img src="public/assets/example.gif" width="400" style="display: block; margin: auto;"/></td>
+    <td><img src="public/assets/example.gif" width="400" style="display: block; margin: auto;"/></td>
   </tr>
   <tr>
     <td align="center"><strong>천안도감</strong></td>
     <td align="center"><strong>챗봇</strong></td>
   </tr>
   <tr>
-    <td><img src="" width="400" style="display: block; margin: auto;"/></td>
-    <td><img src="" width="400" style="display: block; margin: auto;"/></td>
+    <td><img src="public/assets/example.gif" width="400" style="display: block; margin: auto;"/></td>
+    <td><img src="public/assets/example.gif" width="400" style="display: block; margin: auto;"/></td>
   </tr>
   <tr>
     <td align="center"><strong>룰렛</strong></td>
     <td align="center"><strong>룰렛 결과</strong></td>
   </tr>
   <tr>
-    <td><img src="" width="400" style="display: block; margin: auto;"/></td>
-    <td><img src="" width="400" style="display: block; margin: auto;"/></td>
+    <td><img src="public/assets/example.gif" width="400" style="display: block; margin: auto;"/></td>
+    <td><img src="public/assets/example.gif" width="400" style="display: block; margin: auto;"/></td>
   </tr>
   <tr>
     <td align="center"><strong>식당상세정보</strong></td>
     <td align="center"><strong>지도</strong></td>
   </tr>
   <tr>
-    <td align= "center"><img src="" width="250" style="display: block; margin: auto;"/></td>
-    <td><img src="" width="400" style="display: block; margin: auto;"/></td>
-  </tr>
-    <tr>
-    <td align="center"><strong>햄버거바</strong></td>
-    <td align="center"><strong>지도</strong></td>
-  </tr>
-  <tr>
-    <td align= "center"><img src="" width="250" style="display: block; margin: auto;"/></td>
-    <td><img src="" width="400" style="display: block; margin: auto;"/></td>
+    <td align= "center"><img src="public/assets/example.gif" width="250" style="display: block; margin: auto;"/></td>
+    <td><img src="public/assets/example.gif" width="400" style="display: block; margin: auto;"/></td>
   </tr>
 </table>
 
