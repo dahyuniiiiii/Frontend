@@ -98,26 +98,20 @@ function StoreDetail() {
             <img src="/assets/detailcallIcon.svg" />
             <span>{place.phone || "정보 없음"}</span>
           </div>
-          <div className="detailInfo">
-            <img src="/assets/detailmapIcon.svg" />
-            <a
-              href={`https://map.kakao.com/link/map/${place.place_name},${lat},${lng}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {place.place_url || "정보 없음"}
-            </a>
-          </div>
         </div>
-      </div>
-      <span className="mapInfo">위치정보</span>
-      <div className="mapWrapper" ref={mapContainerRef}>
-        {!mapLoaded && <p>지도를 불러올 수 없습니다.</p>}
-        <button
-          className="mapViewBtn"
-          onClick={() => navigate("/map", { state: { store: place } })}
-        >
-          지도보기
+
+        <span className="mapInfo">위치정보</span>
+        <div className="mapWrapper" ref={mapContainerRef}>
+          {!mapLoaded && <p>지도를 불러올 수 없습니다.</p>}
+          <button
+            className="mapViewBtn"
+            onClick={() => navigate("/map", { state: { store: place } })}
+          >
+            지도보기
+          </button>
+        </div>
+        <button className="detailBtn">
+          <img src="/assets/kakaomap.svg" />
         </button>
       </div>
     </div>
