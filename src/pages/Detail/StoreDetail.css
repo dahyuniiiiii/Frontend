@@ -69,12 +69,13 @@
 }
 .mapWrapper {
   position: relative;
-  width: 100%;
+  width: 90%;
   min-height: 14rem;
   border-radius: 15px;
   overflow: hidden;
-  margin-bottom: 5rem;
+  margin-bottom: 1rem;
   z-index: 0;
+  margin-bottom: 1.5rem;
 }
 .detailcate {
   background: #ef776a;
@@ -82,21 +83,25 @@
   color: white;
   font-size: 16px;
   margin-bottom: 0.5rem;
-  display: inline-block;
+  display: inline-flex;
+  white-space: nowrap; 
   padding: 6px 25px;
   border: 1px solid #ef776a;
-  width: 85px;
   height: 35px;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+
 .mapInfo {
   font-weight: bold;
   margin-bottom: 0.2rem;
   color: #4b4b4b;
+  text-align: left;
+  width: 100%;
+  margin-left: 3rem;
+  margin-bottom: 0.5rem;
 }
 .mapViewBtn {
   position: absolute;
@@ -117,4 +122,22 @@
 .detailInfo a {
   color: #4b4b4b;
   text-decoration: none;
+}
+.detailBtn {
+  position: relative;
+  width: 90%;
+  height: 50px;
+  background: #fae100;
+  color: #fdfdfd;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  margin-bottom: 3rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.detailBtn img {
+  width: 100px;
 }

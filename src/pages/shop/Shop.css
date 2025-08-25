@@ -8,7 +8,8 @@
   padding-bottom: 80px;
 }
 .chip {
-  display: inline-block;
+  display: inline-flex;
+  white-space: nowrap;
   padding: 6px 25px;
   margin: 8px 4px;
   border-radius: 30px;
@@ -16,7 +17,6 @@
   background-color: white;
   font-size: 16px;
   color: #ef776a;
-  width: 85px;
   height: 35px;
   white-space: nowrap;
   display: flex;
@@ -25,6 +25,8 @@
   align-items: center;
 }
 .cate {
+  display: inline-flex; 
+  white-space: nowrap;
   border-radius: 5px;
   color: #ef776a;
   padding: 4px 15px;
